@@ -4,10 +4,10 @@
 var fs = require('fs');
 
 try {
-	fs.readFile('./scratch.txt', 'utf8', function(err, data) {
+	fs.readFile('./data/scratch.txt', 'utf8', function(err, data) {
 		if (err) throw err;
 		var adjustData = data.replace(/[A|a]pple/g, 'orange');
-		fs.writeFile('./scratch_3.txt', adjustData, function(err) {
+		fs.writeFile('./data/scratch_3.txt', adjustData, function(err) {
 			if (err) throw err;
 		});
 	});
