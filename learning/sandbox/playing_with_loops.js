@@ -1,4 +1,12 @@
 
+/*
+
+A remedial examination of how to loop over a container. In this case it's an
+array. I wanted to take a peek at all the ways that I think I know how 
+to do this. 
+
+*/ 
+
 'use strict';
 
 var async = require('async');
