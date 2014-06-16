@@ -11,21 +11,15 @@ var request = require('request');
 function get(url) {
 	console.log("\nGoing to " + url);
 	request(url, function (err, res, body) {
-		if (err) {
-			console.log(err);
-			return;
-		} 
-		
+		if (err) throw err; 
+
 		findTitle(body, url);
-	})
+	});
 }
 
 function findTitle(html) {
 	jsdom.env(html, ["http://code.jquery.com/jquery.js"], function(err, window) {
-		if (err) {
-			console.log(err);
-			return;
-		}
+		if (err) throw err;
 
 		console.log("<TITLE>", window.$("title").text());
 	});
