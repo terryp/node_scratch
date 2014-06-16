@@ -9,6 +9,7 @@ So let's try this ... https://github.com/maxogden/art-of-node#callbacks
 
 */ 
 
+'use strict';
 
 var myNumber = 1;           // declare a variable called myNumber, assign it
                             // the value of 1
