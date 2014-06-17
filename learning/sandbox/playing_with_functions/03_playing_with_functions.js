@@ -8,26 +8,6 @@
 
 You're not going to understand callbacks, if you don't understand functions!
 
-<<<<<<< HEAD
-Third, as a guy who used to think he could write Python I was simply very 
-used to the notion that there's only ONE WAY to do that in Python. 
-
-	>>> def greeting():
-	...     print "Hello, World"
-	...
-	>>> greeting()
-	Hello, World
-	>>> def greeting(string):
-	...     print "Hello, %s" % string
-	...
-	>>> greeting("JavaScript")
-	Hello, JavaScript
-	>>>
-
-There are three ways to write functions in JavaScript. 
-=======
-The three ways to write functions. 
-
 As a guy who used to claim to write Python, I was pretty accustomed to the
 very singular approach to writing functions. Functions are like this:
 
@@ -44,7 +24,6 @@ very singular approach to writing functions. Functions are like this:
     >>>
 
 JavaScript provides three different ways for programmers to define a function. 
->>>>>>> 7490e120b93bd830542dfa2f48de90114b902601
 
 1. Using the function constructor
 2. Using function declaration
@@ -52,26 +31,8 @@ JavaScript provides three different ways for programmers to define a function.
 
 */
 
-<<<<<<< HEAD
-// 1. Using the function constructor
 
-var greeting_fc = new Function(				// Declare a variable but call 'new'
-	"string", 								// to make a new Function object. 
-	"console.log('Hello ,' + string + '!')"	// Docs - http://mzl.la/1kHqEVi
-);											// Can take any number of args
-											// and has some body ... in this 
-											// case 'Hello, <STRING>'
 
-greeting_fc('Function Constructor');		// Invoke the function. 
-
-// 2. Using function declaration
-
-function greeting_fd(string) {
-	console.log('Hello, ' + string + '!');
-}
-
-greeting_fd('Function Declaration');
-=======
 // Function Constructor
 
 var greeting_fc = new Function(         // Declare a variable and create a
@@ -98,4 +59,4 @@ var greeting_fe = function (s) {        // Remarkably similar to the first and
                                         // as well. 
 
 greeting_fe('Function Expression');
->>>>>>> 7490e120b93bd830542dfa2f48de90114b902601
+
