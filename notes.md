@@ -5,9 +5,9 @@ Learning Node
 
 - http://examples.oreilly.com/0636920024606/
 - http://javascriptissexy.com/learn-node-js-completely-and-with-confidence/
-  -# http://javascriptissexy.com/javascript-objects-in-detail/
-  -# http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/
-  -# http://javascriptissexy.com/understand-javascript-closures-with-ease/
+  - http://javascriptissexy.com/javascript-objects-in-detail/
+  - http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/
+  - http://javascriptissexy.com/understand-javascript-closures-with-ease/
 
 
 Call Backs
