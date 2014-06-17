@@ -11,8 +11,8 @@ anatomy lesson.
 */
 
 var secondObject = {                        // Declaration of an object.
-    baseName : "Still an object",           // Setting properties - and values 
-    favoriteColor : "Blue"                  // for the properties.
+    baseName : 'Still an object',           // Setting properties - and values 
+    favoriteColor : 'Blue'                  // for the properties.
 };
 
 console.log(secondObject.favoriteColor);    // Accessing a particular property
@@ -20,8 +20,8 @@ console.log(secondObject.favoriteColor);    // Accessing a particular property
                                             // object.
 
 var thirdObject = {                         // Declaration of an object.
-    1: "Some arbitrary value",              // Here the property names are
-    100: "Another arbitrary value"          // integers and not strings.
+    1: 'Some arbitrary value',              // Here the property names are
+    100: 'Another arbitrary value'          // integers and not strings.
 }
 
 console.log(thirdObject[100]);              // Accessing this property's value

@@ -11,9 +11,9 @@ crap out of me when I was learning how to program with Perl.
 */
 
 
-var person = "Tom";                             // These are all string 
-var anotherPerson = "Terry";                    // primatives.
-person = "Mike";
+var person = 'Tom';                             // These are all string 
+var anotherPerson = 'Terry';                    // primatives.
+person = 'Mike';
 
 [person, anotherPerson].forEach(function(x) {   // Prove it!
     console.log(typeof(x));
@@ -25,9 +25,12 @@ console.log(person);                            // by value in this case
                                                 // strings. What happens if
                                                 // we use objects?
 
-var personTwo = {name: "Brian"};                // There are objects now.
+var personTwo = {name: 'Brian'};                // There are objects now.
 var personThree = personTwo;                    // Copy one object into
-personTwo.name = "Debbie";                      // another object.
+personTwo.name = 'Debbie';                      // another object.
+                                                // Change the value of the name
+                                                // property in the original
+                                                // object.
 
 [personTwo, personThree].forEach(function(x) {  // Prove it!
     console.log(typeof(x));
