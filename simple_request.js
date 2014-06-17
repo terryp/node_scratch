@@ -21,6 +21,7 @@ function findTitle(html) {
 	jsdom.env(html, ["http://code.jquery.com/jquery.js"], function(err, window) {
 		if (err) throw err;
 
+		// FIXME: Should this be a var and how does it return?
 		console.log("<TITLE>", window.$("title").text());
 	});
 }
