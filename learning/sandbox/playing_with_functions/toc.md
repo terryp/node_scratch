@@ -8,4 +8,6 @@ Table of Contents
 
 - 03_playing_with_functions.js / Three ways to write functions. 
 
-- 
+- 04_playing_with_functions.js / This is about callbacks, right?
+
+- 05_playing_with_functions.js / Functions are first class citizens.
