@@ -11,4 +11,5 @@ Table of Contents
 - 04_playing_with_objects.js / Two ways of making objects. Literal and 
 constructor
 
-- 05_playing_with_objects.js / Constructor patterns.
+- 05_playing_with_objects.js / Constructor patterns for mass production of 
+objects.
