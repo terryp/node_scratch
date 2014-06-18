@@ -1,6 +1,8 @@
 
 'use strict'
 
+// Here I'm declaring a function. It accepts two parameters, a string and a 
+// callback function. The Callback is executed last. 
 function greeting(string, callback) {
     console.log('Hi, I am a function.');
     console.log('I accept two arguments:');
@@ -11,6 +13,9 @@ function greeting(string, callback) {
     callback(string)
 }
 
+
+// Here, I'm invoking the declared function and passing it a string as well as 
+// an anonymous function as the callback parameter. 
 greeting('PASSED IN ARGUMENT', function(string) {
     console.log('------------------------------------------------------------');
     console.log('\tLadies and gentlemen, now we are in the callback!');
@@ -31,9 +36,12 @@ greeting('PASSED IN ARGUMENT', function(string) {
 console.log('\nWait ... do I need to pass in ONLY an anonymous function?')
 console.log('Could I do the same thing with a named function?');
 
-function not_anonymous(string) {
+// Here I'm declaring a function and giving it a name. 
+var not_an_anonymous_callback = function (string) {
     console.log('\tOriginal string: ' + string);
     console.log('\tNew string: ' + string.toLowerCase());
 }
 
-greeting('HERE IS A DIFFERENT ARGUMENT, not_anonymous()');
+// Here I'm invoking the first function but passing it a named function
+// as the callback instead of an anonymous one.
+greeting('HERE IS A DIFFERENT ARGUMENT', not_an_anonymous_callback);
