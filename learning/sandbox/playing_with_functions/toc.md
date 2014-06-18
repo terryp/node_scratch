@@ -12,3 +12,6 @@ Table of Contents
 
 - 05_playing_with_functions.js / Functions are first class citizens.
 
+- 06_playing_with_functions.js / Callbacks as a path to asynchronous
+programming
+

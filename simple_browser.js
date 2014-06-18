@@ -24,17 +24,16 @@ Browser.prototype = {
             // getStatusCode(res);
         });
     },
-    getStatusCode: function (res) {
+    getStatusCode: function (err, res, body) {
+        if (err) throw err;
         var statusCode = res.statusCode;
-        console.log(statusCode)
-    }
-
+        console.log(statusCode);
+    },
 }
 
+var url = 'http://www.yahoo.com';
 var b = new Browser();
 console.log(util.inspect(b));
 
-var url = 'http://www.yahoo.com';
-console.log(statusCode);
-
+b.get(url);
 
