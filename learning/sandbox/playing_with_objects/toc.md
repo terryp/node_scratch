@@ -14,16 +14,17 @@ constructor
 - 05_playing_with_objects.js / Constructor patterns for mass production of 
 objects.
 
-- 06_playing_with_objects.js / Own and inherited properties. [INCOMPLETE]
+- 06_playing_with_objects.js / Property access.
 
-- 07_playing_with_objects.js / Accessing and enumerating properties.
+- 07_playing_with_objects.js / Own and inherited properties of objects.
+
+- 08_playing_with_objects.js / Accessing and enumerating properties of objects.
+
+- 0X_playing_with_objects.js / Accessing inherited properties.
 [INCOMPLETE]
 
-- 08_playing_with_objects.js / Accessing inherited properties.
+- 0X_playing_with_objects.js / Deleting properties of an object. [INCOMPLETE]
+
+- 1X_playing_with_objects.js / Serialize and deserialize objects.
 [INCOMPLETE]
-
-- 09_playing_with_objects.js / Deleting properties of an object.
-
-- 10_playing_with_objects.js / Serialize and deserialize objects.
-
 
