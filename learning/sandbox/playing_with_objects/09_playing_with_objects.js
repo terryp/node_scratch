@@ -17,7 +17,7 @@ var car = {
 }
 
 function SportsCar() {
-    this.gasType =  'Super High Octane';
+    this.gasType = 'Super High Octane';
 }
 
 var car = new SportsCar()
