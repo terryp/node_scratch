@@ -20,8 +20,7 @@ objects.
 
 - 08_playing_with_objects.js / Accessing and enumerating properties of objects.
 
-- 0X_playing_with_objects.js / Accessing inherited properties.
-[INCOMPLETE]
+- 09_playing_with_objects.js / Accessing inherited properties.
 
 - 0X_playing_with_objects.js / Deleting properties of an object. [INCOMPLETE]
 
