@@ -22,8 +22,6 @@ objects.
 
 - 09_playing_with_objects.js / Accessing inherited properties.
 
-- 10_playing_with_objects.js / Deleting properties of an object. [INCOMPLETE]
+- 10_playing_with_objects.js / Deleting properties of an object.
 
-- 1X_playing_with_objects.js / Serialize and deserialize objects.
-[INCOMPLETE]
-
+- 11_playing_with_objects.js / Serialize and deserialize objects.
