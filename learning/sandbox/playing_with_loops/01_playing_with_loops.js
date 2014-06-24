@@ -29,6 +29,7 @@ console.log("\n");
 console.log ("For In Looping");                 // Here's another way to loop
 for (var i in items) {                          // using the for-in approach.
 	console.log(items[i] + 1);                  // This is more similar to how                 
+    //(function(ind){ console.log(ind)}(i));    // MANDERSON WANTS AND IFFE!
 }                                               // I prefer to loop in Python.
 console.log("\n");
 
