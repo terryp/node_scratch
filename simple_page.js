@@ -8,8 +8,13 @@ var request = require('request');
 // in the actual response from request.js. 
 
 var Page = function(res, body) {
-    this.response = res;
-    this.statusCode = res.statusCode;
+    var self = this;
+    self.response = res;
+    self.statusCode = res.statusCode;
+}
+
+Page.prototype.getTitle = function() {
+    
 }
 
 function get(url) {
