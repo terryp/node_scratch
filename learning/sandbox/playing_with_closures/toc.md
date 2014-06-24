@@ -2,7 +2,8 @@
 Table of Contents
 -----------------
 
-From - http://javascriptissexy.com/understand-javascript-closures-with-ease/
+A "follow along" exercise based on the following page:
+http://javascriptissexy.com/understand-javascript-closures-with-ease/
 
 - 01_playing_with_closures.js / Basic examples. 
 

@@ -2,6 +2,9 @@
 Table of Contents
 -----------------
 
+Mostly a "rehashing" of my post on callbacks. The post itself is in the 'raw.js'
+file and to be honest ... I think I would do this a little differently.
+
 - 01_playing_with_functions.js / Declaration and invocation.
 
 - 02_playing_with_functions.js / Function arguments/parameters.

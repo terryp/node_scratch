@@ -4,8 +4,10 @@
 var request = require('request');
 var util = require('util');
 
-function Browser() {
-    this.name = 'Scratch Browser';
+var Browser = function() {
+    this.name = "Scratch Browser";
+    this.userAgent = 'request.js 2.36.0';
+    this.cookieJar = request.jar();
 }
 
 Browser.prototype = {

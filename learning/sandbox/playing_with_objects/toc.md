@@ -2,6 +2,9 @@
 Table of Contents
 -----------------
 
+A "follow along" exercise based on the following page:
+http://javascriptissexy.com/javascript-objects-in-detail/
+
 - 01_playing_with_objects.js / Simple object creation. 
 
 - 02_playing_with_objects.js / Simple object with properties.

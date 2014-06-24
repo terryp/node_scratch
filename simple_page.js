@@ -4,6 +4,9 @@
 var async = require('async');
 var request = require('request');
 
+// FIXME: This object needs to be built along the lines of what comes back
+// in the actual response from request.js. 
+
 var Page = function(res, body) {
     this.response = res;
     this.statusCode = res.statusCode;

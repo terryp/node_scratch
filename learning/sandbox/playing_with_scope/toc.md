@@ -2,6 +2,9 @@
 Table of Contents
 -----------------
 
+A "follow along" exercise based on the following page:
+http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/
+
 - 01_playing_with_scope.js / Basic scope at the function level.
 
 - 02_playing_with_scope.js / Basic scope at the block level.
