@@ -10,4 +10,8 @@ Serialization/deserialization.
 
 var shitList = { projectManager: "Joe", testEngineer: "Guy" }
 
-JSON.stringify(shitList, null, 4);
+var printed = JSON.stringify(shitList);
+var printedAgain = JSON.stringify(shitList, null, 4);
+
+console.log(printed);
+console.log(printedAgain);

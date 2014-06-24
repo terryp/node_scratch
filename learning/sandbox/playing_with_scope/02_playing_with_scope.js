@@ -9,7 +9,7 @@ Really basic scope at the block level.
 
 */
 
-var name = 'Terry';         // This is a global variable.
+var name = 'Terry';        // This is a global variable.
 
 if (name) {                 // Basic conditional looking for some 'name.'
     name = 'Ian';           // Change the value of 'name' to 'Ian'
