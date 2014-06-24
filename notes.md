@@ -1,9 +1,17 @@
 
+You Don't Know JS
+-----------------
+
+- https://github.com/getify/You-Dont-Know-JS
 
 Learning Node
 -------------
 
 - http://examples.oreilly.com/0636920024606/
+
+Learn Node Completely and With Confidence
+-----------------------------------------
+
 - http://javascriptissexy.com/learn-node-js-completely-and-with-confidence/
   - http://javascriptissexy.com/javascript-objects-in-detail/
   - http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/
@@ -25,5 +33,5 @@ Idioms and Patterns
 
 - https://github.com/airbnb/javascript
 - https://github.com/FredKSchott/NodeJS-Handbook
-
+- http://pages.citebite.com/i9e9e4d1yxip
 
