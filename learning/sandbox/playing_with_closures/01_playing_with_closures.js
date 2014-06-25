@@ -9,10 +9,12 @@ Closures have access to the global scope, enclosing scope and local scope.
 
 */
 
-function showName(firstName, lastName) {
+                                                        // Global scope
+
+function showName(firstName, lastName) {                // Outer scope
     var nameIntro = 'Your name is: ';
     function makeFullName() {
-        return nameIntro + firstName + ' ' + lastName;
+        return nameIntro + firstName + ' ' + lastName;  // Own scope
     }
     return makeFullName();
 }
