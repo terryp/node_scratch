@@ -15,7 +15,9 @@
 	],
 	"dependencies" : {
 		"async": "0.9.0",
+		"cheerio": "0.17.0",
 		"express": "4.x",
+		"html5": "0.4.1",
 		"jsdom": "0.10.6",
 		"request": "2.26.0"
 	}
