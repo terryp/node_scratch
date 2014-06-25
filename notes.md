@@ -17,7 +17,6 @@ Learn Node Completely and With Confidence
   - http://javascriptissexy.com/javascript-variable-scope-and-hoisting-explained/
   - http://javascriptissexy.com/understand-javascript-closures-with-ease/
 
-
 Call Backs
 ----------
 

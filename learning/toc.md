@@ -3,7 +3,7 @@ References I'm Using to Work Through the Shizzle
 ================================================
 
 - aon / The Art of Node
-  - https://github.com/maxogden/art-of-node#callbacks
+  - https://github.com/maxogden/art-of-node
 
 - jsis / JavaScript is Sexy
   - http://javascriptissexy.com/learn-node-js-completely-and-with-confidence/
@@ -11,3 +11,4 @@ References I'm Using to Work Through the Shizzle
 - sandbox / Random Experiments
 
 - sp_ln / "Learning Node" Shelly Powers
+  - http://shop.oreilly.com/product/0636920024606.do

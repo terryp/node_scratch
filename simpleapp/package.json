@@ -1,0 +1,20 @@
+{
+    "name": "simpleapp",
+    "version": "0.0.1",
+    "description": "I could really use a little test server.",
+    "author": "Terry Peppers <peppers@gmail.com",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/terryp/node_scratch/simpleapp"
+    },
+    "keywords": [
+        "beginner",
+        "example",
+        "browser",
+        "server",
+        "express"
+    ],
+    "dependencies" : {
+        "express": "4.x"
+    }
+}
