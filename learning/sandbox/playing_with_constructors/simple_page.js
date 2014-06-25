@@ -3,47 +3,45 @@
 
 var fs = require('fs');
 var cheerio = require('cheerio');
-
-// var html = fs.readFileSync('index.html').toString();
-// var parsedHtml = cheerio.load(html);
-
-// var title = parsedHtml('title').text();
-// var metaDescription = parsedHtml('meta[name=description]').attr('content');
-// var metaAuthor = parsedHtml('meta[name=author]').attr('content');
-// var metaKeywords = parsedHtml('meta[name=keywords]').attr('content');
-// var form = parsedHtml('form').attr('name');
-
-// console.log(title);
-// console.log(metaDescription);
-// console.log(metaAuthor);
-// console.log(metaKeywords);
-// console.log(form);
-
-// THIS SHIT IS FOR LATER!
-// See http://maxogden.com/scraping-with-node.html
+var request = require('request');
 
 var Page = function(body) {
     this.rawHtml = fs.readFileSync(body).toString();
     this.parsedHtml = cheerio.load(this.rawHtml);
+    this.title = this.parsedHtml('title').text();
+    this.metaDescription = this.parsedHtml(
+        'meta[name=description]').attr('content'
+    );
+    this.metaAuthor = this.parsedHtml('meta[name=author]').attr('content');
+    this.metaKeywords = this.parsedHtml(
+        'meta[name=keywords]').attr('content'
+    );
+    this.form = this.parsedHtml('form').attr('name');
 }
 
-Page.prototype = {
-    constructor: Page,
-    getTitle: function() {
-        return this.parsedHtml('title').text();
-    },
-    getMeta: function() {
-        return this.parsedHtml('meta[name=description]').attr('content');
-    },
-    getFormTitle: function() {
-        return this.parsedHtml('form').attr('name');
-    }
-}
-
+// Static attempt at using the Page object. 
 var rawPage = './index.html';
 var testPage = new Page(rawPage);
 
-console.log(testPage.rawHtml);
-console.log(testPage.getTitle());
-console.log(testPage.getMeta());
-console.log(testPage.getFormTitle());
+console.log(testPage.title);
+console.log(testPage.metaDescription);
+console.log(testPage.metaKeywords);
+console.log(testPage.metaAuthor);
+console.log(testPage.form);
+
+console.log('-----------------------------------');
+
+// Will it work with request, though. 
+var url = 'http://www.swordstyle.com';
+var options = {
+    headers: {
+        'User-Agent': 'request 0.26.0'
+    }
+}
+
+request(url, options, function(err, res, body) {
+    if (err) throw err;
+    console.log(body);
+    // var anotherTestPage = new Page(body);
+    // console.log(anotherTestPage.title);
+});
