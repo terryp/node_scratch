@@ -5,6 +5,10 @@ var fs = require('fs');
 var cheerio = require('cheerio');
 var request = require('request');
 
+var Page = function() {
+    
+}
+
 var StaticPage = function(body) {
     this.rawHtml = fs.readFileSync(body).toString();
     this.parsedHtml = cheerio.load(this.rawHtml);

@@ -10,5 +10,8 @@ References I'm Using to Work Through the Shizzle
 
 - sandbox / Random Experiments
 
+- spjs / "Speaking JavaScript"
+  - http://speakingjs.com/es5/
+
 - sp_ln / "Learning Node" Shelly Powers
   - http://shop.oreilly.com/product/0636920024606.do
