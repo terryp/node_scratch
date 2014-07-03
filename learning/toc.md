@@ -5,6 +5,9 @@ References I'm Using to Work Through the Shizzle
 - aon / The Art of Node
   - https://github.com/maxogden/art-of-node
 
+- hon / Hands on Node
+  - http://nodetuts.com/handson-nodejs-book.html
+
 - jsis / JavaScript is Sexy
   - http://javascriptissexy.com/learn-node-js-completely-and-with-confidence/
 
