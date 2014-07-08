@@ -11,6 +11,9 @@ References I'm Using to Work Through the Shizzle
 - jsis / JavaScript is Sexy
   - http://javascriptissexy.com/learn-node-js-completely-and-with-confidence/
 
+- jstgp / JavaScript the Good Parts
+  - http://javascript.crockford.com/private.html
+
 - pjt / "Pro JavaScript Techniques" John Resig
   - http://www.apress.com/9781590597279
 
