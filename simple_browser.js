@@ -4,38 +4,22 @@
 var request = require('request');
 var util = require('util');
 
-var Browser = function() {
-    this.name = "Scratch Browser";
+var Browser = function(browserName) {
+    this.browserName = browserName;
     this.userAgent = 'request.js 2.36.0';
-    this.cookieJar = request.jar();
 }
 
-Browser.prototype = {
-    constructor: Browser,
-    get: function (url) {
-        request(url, function(err, res, body) {
-            if (err) throw err; 
-            // FIXME: How do I take this response
-            // and shoot it back to the Browser object?
-            // This is async ... so when I try to do it in a 
-            // Pythonic linear fashion ... status code returns
-            // undefined. 
-            // The async nature of this function means that
-            // you can't do this ...
-            // See - http://bit.ly/1lCGZL2
-            // getStatusCode(res);
-        });
-    },
-    getStatusCode: function (err, res, body) {
+Browser.prototype.get = function(url) {
+    request(url, function(err, response, body) {
         if (err) throw err;
-        var statusCode = res.statusCode;
-        console.log(statusCode);
-    },
+        this.statusCode = response.StatusCode;
+    });
 }
 
 var url = 'http://www.yahoo.com';
 var b = new Browser();
-console.log(util.inspect(b));
 
 b.get(url);
+
+console.log(b.statusCode);
 

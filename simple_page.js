@@ -2,19 +2,27 @@
 'use strict';
 
 var async = require('async');
+var cheerio = require('cheerio');
 var request = require('request');
 
-// FIXME: This object needs to be built along the lines of what comes back
-// in the actual response from request.js. 
-
 var Page = function(res, body) {
-    var self = this;
-    self.response = res;
-    self.statusCode = res.statusCode;
-}
+    this.response = res;
+    this.statusCode = res.statusCode;
+    this.body = body;
+    this.parsedHtml = cheerio.load(this.body);
+    this.title = this.parsedHtml('title').text();
+    this.metaDescription = this.parsedHtml('\
+        meta[name=description]').attr('content');
+    this.metaAuthor = this.parsedHtml('meta[name=author]').attr('content');
+    this.metaKeywords = this.parsedHtml('meta[name=keywords]').attr('content');
 
-Page.prototype.getTitle = function() {
-    
+    this.description = function() {
+        console.log(this.statusCode);
+        console.log(this.title);
+        console.log(this.metaDescription);
+        console.log(this.metaAuthor);
+        console.log(this.metaKeywords);
+    }
 }
 
 function get(url) {
@@ -23,7 +31,8 @@ function get(url) {
         if (err) throw err; 
 
         var testPage = new Page(res,body);
-        console.log(testPage.statusCode);
+
+        testPage.description();
     });
 }
 
