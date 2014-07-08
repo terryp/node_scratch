@@ -3,4 +3,10 @@ var done = function(msg) {
     console.log(msg);
 }
 
-var soemthing = function(callback)
+var something = setTimeout(function(done) { 
+    done();
+}, 4000)
+
+something();
+
+console.log('hi!');
