@@ -11,9 +11,12 @@ References I'm Using to Work Through the Shizzle
 - jsis / JavaScript is Sexy
   - http://javascriptissexy.com/learn-node-js-completely-and-with-confidence/
 
+- pjt / "Pro JavaScript Techniques" John Resig
+  - http://www.apress.com/9781590597279
+
 - sandbox / Random Experiments
 
-- spjs / "Speaking JavaScript"
+- spjs / "Speaking JavaScript" Axel Rauschmeyer
   - http://speakingjs.com/es5/
 
 - sp_ln / "Learning Node" Shelly Powers
