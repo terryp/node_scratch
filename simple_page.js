@@ -1,6 +1,8 @@
 
 'use strict';
 
+var fs = require('fs');                 // One of Node's 'batteries included'
+
 var async = require('async');           // Do things asynchronously
 var cheerio = require('cheerio');       // Parser with jQuery API - no DOM
 var request = require('request');       // Make requests and get responses
@@ -9,30 +11,41 @@ var request = require('request');       // Make requests and get responses
 // Pulls in a response and a body and uses those elements in tandem with
 // cheerio to set basic properties of the class itself. 
 
-function Page(res, body) {
+function Page(type, res, body) {
+
+    var type = type;
+    this.type = getType();
     this.response = res;
     this.statusCode = res.statusCode;
     this.body = body;
-    this.parsedHtml = cheerio.load(this.body);
-    this.title = this.parsedHtml('title').text();
-    this.metaDescription = this.parsedHtml('\
-        meta[name=description]').attr('content');
-    this.metaAuthor = this.parsedHtml('meta[name=author]').attr('content');
-    this.metaKeywords = this.parsedHtml('meta[name=keywords]').attr('content');
+    this.html = getParseStrategy();
+
+    this.title = this.html('title').text();
+    this.metaDescription = this.html('meta[name=description]').attr('content');
+    this.metaAuthor = this.html('meta[name=author]').attr('content');
+    this.metaKeywords = this.html('meta[name=keywords]').attr('content');
+
+    function getParseStrategy() {
+        if (type == 'static') {
+            return cheerio.load(fs.readFileSync(body).toString());
+        } else if (type == 'dynamic') {
+            return cheerio.load(body);
+        }
+    }
+
+    function getType() {
+        return type;
+    }
 }
 
-Page.prototype.getStatusCode = function() {
-    return this.statusCode;
-}
-
-Page.prototype.getDescription = function() {
-    var description = {
+Page.prototype.getSummary = function() {
+    var summary = {
         'title': this.title,
         'metaDescription': this.metaDescription,
         'metaAuthor': this.metaAuthor,
         'metaKeywords': this.metaKeywords,
     };
-    return description;
+    return summary;
 }
 
 // This is actually the heart of the matter. It's a function that will
@@ -40,14 +53,15 @@ Page.prototype.getDescription = function() {
 // and then print out the description of the page. 
 
 function get(url) {
-    console.log("\nGoing to " + url);
+    console.log("Going to " + url);
     request(url, function (err, res, body) {
         if (err) throw err; 
 
-        var testPage = new Page(res,body);
+        var testPage = new Page('dynamic', res, body);
 
-        console.log(testPage.getStatusCode());
-        console.log(testPage.getDescription());
+        if (testPage.statusCode == 200) {
+            console.log(testPage.getSummary());    
+        }
     });
 }
 

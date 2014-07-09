@@ -6,18 +6,7 @@ var cheerio = require('cheerio');
 var request = require('request');
 
 function Page(type, body) {
-    function getParseStrategy() {
-        if (type == 'static') {
-            return cheerio.load(fs.readFileSync(body).toString());
-        } else if (type == 'dynamic') {
-            return cheerio.load(body);
-        }
-    }
-
-    function getType() {
-        return type;
-    }
-
+    
     var type = type;
     this.type = getType()
     this.body = body;
@@ -31,6 +20,18 @@ function Page(type, body) {
         'meta[name=keywords]').attr('content'
     );
     this.form = this.parsedHtml('form').attr('name');
+
+    function getParseStrategy() {
+        if (type == 'static') {
+            return cheerio.load(fs.readFileSync(body).toString());
+        } else if (type == 'dynamic') {
+            return cheerio.load(body);
+        }
+    }
+
+    function getType() {
+        return type;
+    }
 }
 
 Page.prototype.getSummary = function() {
