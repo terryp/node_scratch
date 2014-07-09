@@ -5,13 +5,23 @@ var fs = require('fs');
 var cheerio = require('cheerio');
 var request = require('request');
 
-var Page = function() {
-    
-}
+function Page(type, body) {
+    function getParseStrategy() {
+        if (type == 'static') {
+            return cheerio.load(fs.readFileSync(body).toString());
+        } else if (type == 'dynamic') {
+            return cheerio.load(body);
+        }
+    }
 
-var StaticPage = function(body) {
-    this.rawHtml = fs.readFileSync(body).toString();
-    this.parsedHtml = cheerio.load(this.rawHtml);
+    function getType() {
+        return type;
+    }
+
+    var type = type;
+    this.type = getType()
+    this.body = body;
+    this.parsedHtml = getParseStrategy(); 
     this.title = this.parsedHtml('title').text();
     this.metaDescription = this.parsedHtml(
         'meta[name=description]').attr('content'
@@ -23,44 +33,38 @@ var StaticPage = function(body) {
     this.form = this.parsedHtml('form').attr('name');
 }
 
-var DynamicPage = function(body) {
-    this.parsedHtml = cheerio.load(body);
-    this.title = this.parsedHtml('title').text();
-    this.metaDescription = this.parsedHtml(
-        'meta[name=description]').attr('content'
-    );
-    this.metaAuthor = this.parsedHtml('meta[name=author]').attr('content');
-    this.metaKeywords = this.parsedHtml(
-        'meta[name=keywords]').attr('content'
-    );
-    this.form = this.parsedHtml('form').attr('name');    
+Page.prototype.getSummary = function() {
+    var summary = {
+        'title': this.title,
+        'metaDescription': this.metaDescription,
+        'metaAuthor': this.metaAuthor,
+        'metaKeywords': this.metaKeywords,
+    };
+    return summary;
 }
 
-// Static attempt at using the Page object. 
-var rawPage = './index.html';
-var testPage = new StaticPage(rawPage);
+// Here's a static page. This will be helpful when testing from straight disk. 
 
-console.log(testPage.title);
-console.log(testPage.metaDescription);
-console.log(testPage.metaKeywords);
-console.log(testPage.metaAuthor);
-console.log(testPage.form);
+var staticSrc = './index.html';
+var testStaticPage = new Page('static', staticSrc);
 
-console.log('-----------------------------------');
+console.log(testStaticPage.type);
+console.log(testStaticPage.getSummary());
 
-// Will it work with request, though. 
-// Yes, but the fs.readFile ... which is a flat attempt
-// is different than just loading cheerio with the body of a response
-// from request
-var url = 'http://www.swordstyle.com';
+// However, cheerio is a little finicky on how it gets it's responses. So in 
+// the case of a dyanmic page - read one that is coming from the node 'request'
+// library we need to do something a little different
+
+var dynamicUrl = 'http://www.yahoo.com';
 var options = {
     headers: {
         'User-Agent': 'request 0.26.0'
     }
 }
 
-request(url, options, function(err, res, body) {
+request(dynamicUrl, options, function(err, res, body) {
     if (err) throw err;
-    var anotherTestPage = new DynamicPage(body)
-    console.log(anotherTestPage.title);
+    var testDynamicPage = new Page('dynamic', body)
+    console.log(testDynamicPage.type);
+    console.log(testDynamicPage.getSummary());
 });
