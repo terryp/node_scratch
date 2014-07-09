@@ -1,20 +1,15 @@
 
 'use strict';
 
-// Basic imports. 
-// async - Do things asynchronously
-// cheerio - Fast parser using jQuery selectors
-// request - Wrapper to make requests and parse responses
-
-var async = require('async');
-var cheerio = require('cheerio');
-var request = require('request');
+var async = require('async');           // Do things asynchronously
+var cheerio = require('cheerio');       // Parser with jQuery API - no DOM
+var request = require('request');       // Make requests and get responses
 
 // Basic Page class. 
 // Pulls in a response and a body and uses those elements in tandem with
 // cheerio to set basic properties of the class itself. 
 
-var Page = function(res, body) {
+function Page(res, body) {
     this.response = res;
     this.statusCode = res.statusCode;
     this.body = body;
@@ -24,14 +19,20 @@ var Page = function(res, body) {
         meta[name=description]').attr('content');
     this.metaAuthor = this.parsedHtml('meta[name=author]').attr('content');
     this.metaKeywords = this.parsedHtml('meta[name=keywords]').attr('content');
+}
 
-    this.description = function() {
-        console.log(this.statusCode);
-        console.log(this.title);
-        console.log(this.metaDescription);
-        console.log(this.metaAuthor);
-        console.log(this.metaKeywords);
-    }
+Page.prototype.getStatusCode = function() {
+    return this.statusCode;
+}
+
+Page.prototype.getDescription = function() {
+    var description = {
+        'title': this.title,
+        'metaDescription': this.metaDescription,
+        'metaAuthor': this.metaAuthor,
+        'metaKeywords': this.metaKeywords,
+    };
+    return description;
 }
 
 // This is actually the heart of the matter. It's a function that will
@@ -45,7 +46,8 @@ function get(url) {
 
         var testPage = new Page(res,body);
 
-        testPage.description();
+        console.log(testPage.getStatusCode());
+        console.log(testPage.getDescription());
     });
 }
 
