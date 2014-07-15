@@ -8,6 +8,7 @@ var request = require('request');
 function Page(type, body) {
     
     var type = type;
+    this.links = this.parsedHtml.find('a');
     this.type = getType()
     this.body = body;
     this.parsedHtml = getParseStrategy(); 
@@ -51,6 +52,7 @@ var testStaticPage = new Page('static', staticSrc);
 
 console.log(testStaticPage.type);
 console.log(testStaticPage.getSummary());
+console.log(testStaticPage.links);
 
 // However, cheerio is a little finicky on how it gets it's responses. So in 
 // the case of a dyanmic page - read one that is coming from the node 'request'

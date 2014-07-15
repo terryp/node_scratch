@@ -14,6 +14,7 @@ var request = require('request');       // Make requests and get responses
 function Page(type, res, body) {
 
     var type = type;
+    // var links = getLinks()
     this.type = getType();
     this.response = res;
     this.statusCode = res.statusCode;
@@ -36,6 +37,10 @@ function Page(type, res, body) {
     function getType() {
         return type;
     }
+
+    // function getLinks() {
+    //     return this.html.find('a');
+    // }
 }
 
 Page.prototype.getSummary = function() {
@@ -61,6 +66,7 @@ function get(url) {
 
         if (testPage.statusCode == 200) {
             console.log(testPage.getSummary());    
+            // console.log(testPage.links);
         }
     });
 }
