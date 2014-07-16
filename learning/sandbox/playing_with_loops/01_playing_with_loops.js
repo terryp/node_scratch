@@ -38,16 +38,16 @@ items.forEach(function(i) {                     // is a for-each loop which
 console.log("\n");                              // list comprehension.
 
 
-console.log("Async Looping");                   // Still another way, async!
-var add_one = function(x, doneCallback) {       // Need to define a function
-	console.log(x + 1);                         // in order for this to work.
-	return doneCallback(null);                  // Well, you could use an
-}                                               // anonymous function but this
-                                                // seems a little more explicit.
-
 var async = require('async');                   // Needed for later. This is
                                                 // akin to importing a library
                                                 // in Python. 
+
+console.log("Async Looping");                   // Still another way, async!
+var add_one = function(x, doneCallback) {       // Need to define a function
+    console.log(x + 1);                         // in order for this to work.
+    return doneCallback(null);                  // Well, you could use an
+}                                               // anonymous function but this
+                                                // seems a little more explicit.
 
 async.each(items, add_one, function(err) {
 	console.log("\n");
