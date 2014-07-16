@@ -14,7 +14,6 @@ var request = require('request');       // Make requests and get responses
 function Page(type, res, body) {
 
     var type = type;
-    // var links = getLinks()
     this.type = getType();
     this.response = res;
     this.statusCode = res.statusCode;
@@ -22,9 +21,24 @@ function Page(type, res, body) {
     this.html = getParseStrategy();
 
     this.title = this.html('title').text();
+    
     this.metaDescription = this.html('meta[name=description]').attr('content');
+    
     this.metaAuthor = this.html('meta[name=author]').attr('content');
+    
     this.metaKeywords = this.html('meta[name=keywords]').attr('content');
+    
+    this.getLinks = function() {
+        var links = {};
+        var temp = this.html;
+        temp('a').each(function() {
+            var link = temp(this);
+            var text = link.text();
+            var href = link.attr('href');
+            links[text] = href;
+        });
+        return links;
+    }
 
     function getParseStrategy() {
         if (type == 'static') {
@@ -37,10 +51,6 @@ function Page(type, res, body) {
     function getType() {
         return type;
     }
-
-    // function getLinks() {
-    //     return this.html.find('a');
-    // }
 }
 
 Page.prototype.getSummary = function() {
@@ -66,7 +76,7 @@ function get(url) {
 
         if (testPage.statusCode == 200) {
             console.log(testPage.getSummary());    
-            // console.log(testPage.links);
+            console.log(testPage.getLinks());
         }
     });
 }
