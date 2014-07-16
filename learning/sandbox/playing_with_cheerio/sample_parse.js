@@ -18,4 +18,20 @@ var getLinks = function() {
     return links;
 }
 
+var getForms = function() {
+    var forms = {};
+    html('form').each(function() {
+        var form = html(this);
+        var name = form.attr('name');
+        var action = form.attr('action');
+        var method = form.attr('method')
+        forms[name] = [action, method];
+
+        // get input fields!
+        
+    });
+    return forms;
+}
+
 console.log(getLinks());
+console.log(getForms());
