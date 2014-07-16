@@ -53,6 +53,9 @@ function Page(type, res, body) {
     }
 }
 
+// FIXME: I can move this back into the primary page class. 
+// I don't need this sitting outside anymore. 
+
 Page.prototype.getSummary = function() {
     var summary = {
         'title': this.title,

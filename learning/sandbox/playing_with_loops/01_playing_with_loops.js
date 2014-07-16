@@ -9,9 +9,7 @@ to do this.
 
 */ 
 
-var async = require('async');                   // Needed for later. This is
-                                                // akin to importing a library
-                                                // in Python. 
+
 
 var items = [1,2,3,4];                          // Here's the target array
                                                 // that I'll be looping over.
@@ -29,7 +27,6 @@ console.log("\n");
 console.log ("For In Looping");                 // Here's another way to loop
 for (var i in items) {                          // using the for-in approach.
 	console.log(items[i] + 1);                  // This is more similar to how                 
-    //(function(ind){ console.log(ind)}(i));    // MANDERSON WANTS AND IFFE!
 }                                               // I prefer to loop in Python.
 console.log("\n");
 
@@ -47,6 +44,10 @@ var add_one = function(x, doneCallback) {       // Need to define a function
 	return doneCallback(null);                  // Well, you could use an
 }                                               // anonymous function but this
                                                 // seems a little more explicit.
+
+var async = require('async');                   // Needed for later. This is
+                                                // akin to importing a library
+                                                // in Python. 
 
 async.each(items, add_one, function(err) {
 	console.log("\n");
