@@ -8,7 +8,6 @@ var request = require('request');
 function Page(type, body) {
     
     var type = type;
-    this.links = this.parsedHtml.find('a');
     this.type = getType()
     this.body = body;
     this.parsedHtml = getParseStrategy(); 
@@ -20,6 +19,7 @@ function Page(type, body) {
     this.metaKeywords = this.parsedHtml(
         'meta[name=keywords]').attr('content'
     );
+    //this.links = this.parsedHtml('a');
     this.form = this.parsedHtml('form').attr('name');
 
     function getParseStrategy() {
