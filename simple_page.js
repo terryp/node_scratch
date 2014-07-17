@@ -40,6 +40,16 @@ function Page(type, res, body) {
         return links;
     }
 
+    this.getSummary = function() {
+        var summary = {
+            'title': this.title,
+            'metaDescription': this.metaDescription,
+            'metaAuthor': this.metaAuthor,
+            'metaKeywords': this.metaKeywords,
+        };  
+        return summary;  
+    }
+
     function getParseStrategy() {
         if (type == 'static') {
             return cheerio.load(fs.readFileSync(body).toString());
@@ -51,19 +61,6 @@ function Page(type, res, body) {
     function getType() {
         return type;
     }
-}
-
-// FIXME: I can move this back into the primary page class. 
-// I don't need this sitting outside anymore. 
-
-Page.prototype.getSummary = function() {
-    var summary = {
-        'title': this.title,
-        'metaDescription': this.metaDescription,
-        'metaAuthor': this.metaAuthor,
-        'metaKeywords': this.metaKeywords,
-    };
-    return summary;
 }
 
 // This is actually the heart of the matter. It's a function that will
