@@ -20,6 +20,7 @@
     "html5": "0.4.1",
     "jsdom": "0.10.6",
     "request": "2.26.0",
-    "underscore": "^1.6.0"
+    "underscore": "^1.6.0",
+    "util": "^0.10.3"
   }
 }
