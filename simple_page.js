@@ -7,6 +7,7 @@ var async = require('async');           // Do things asynchronously
 var cheerio = require('cheerio');       // Parser with jQuery API - no DOM
 var request = require('request');       // Make requests and get responses
 var _ = require('underscore');
+var util = require('util');
 
 // Basic Page class.
 // Pulls in a response and a body and uses those elements in tandem with
