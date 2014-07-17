@@ -21,7 +21,8 @@
     "jsdom": "0.10.6",
     "request": "2.26.0",
     "underscore": "^1.6.0",
-    "util": "^0.10.3"
+    "util": "^0.10.3",
+    "events": "^1.0.1"
   },
   "devDependencies": {
     "gulp": "^3.8.6",
