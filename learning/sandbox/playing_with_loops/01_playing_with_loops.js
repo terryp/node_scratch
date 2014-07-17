@@ -9,8 +9,6 @@ to do this.
 
 */ 
 
-
-
 var items = [1,2,3,4];                          // Here's the target array
                                                 // that I'll be looping over.
 
