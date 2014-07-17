@@ -30,7 +30,7 @@ var Page = function(url) {
         console.log(self.summary());
         //console.log(self.links());
     });
-}
+};
 
 Page.prototype.title = function() {
     var self = this;
@@ -42,19 +42,19 @@ Page.prototype.metaDescription = function() {
     var self = this;
 
     return self.html('meta[name=description]').attr('content');
-}
+};
 
 Page.prototype.metaAuthor = function() {
     var self = this;
 
     return self.html('meta[name=author]').attr('content');
-}
+};
 
 Page.prototype.metaKeywords = function() {
     var self = this;
 
     return self.html('meta[name=keywords]').attr('content');
-}
+};
 
 Page.prototype.summary = function() {
     var self = this;
@@ -75,9 +75,9 @@ Page.prototype.links = function() {
         return {
             text: link.text(),
             href: link.attr('href')
-        }
+        };
     });
-}
+};
 
 var urls = [
     "http://www.google.com",
