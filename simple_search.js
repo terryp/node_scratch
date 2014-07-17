@@ -1,3 +1,4 @@
+/*jslint node: true */
 
 'use strict';
 
@@ -6,7 +7,7 @@ var fs = require('fs');
 var async = require('async');
 var cheerio = require('cheerio');
 var request = require('request');
-    
+
 var url = 'http://www.google.com';
 
 var openAndSearch = function(url, callback) {
@@ -21,12 +22,12 @@ var openAndSearch = function(url, callback) {
     }
 
     request(url, function (err, res, body) {
-        if (err) throw err; 
+        if (err) throw err;
 
         var testPage = new Page('dynamic', res, body);
 
         if (testPage.statusCode == 200) {
-            console.log(testPage.getSummary());    
+            console.log(testPage.getSummary());
         }
     });
 }

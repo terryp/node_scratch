@@ -1,3 +1,4 @@
+/*jslint node: true */
 
 'use strict';
 
@@ -21,7 +22,7 @@ request(url, options, function(err, res, body) {
     // console.log(request.uri);
     // console.log("HTTP STATUS CODE!");
     // console.log(res.StatusCode);
-    // FIXME: What about the URL that was accessed if there was a redirect. 
+    // FIXME: What about the URL that was accessed if there was a redirect.
     // FIXME: What about SSL or no SSL?
     // FIXME: What about default user agent?
 });
