@@ -6,94 +6,87 @@ var fs = require('fs');                 // One of Node's 'batteries included'
 var async = require('async');           // Do things asynchronously
 var cheerio = require('cheerio');       // Parser with jQuery API - no DOM
 var request = require('request');       // Make requests and get responses
+var _ = require('underscore');
 
-// Basic Page class. 
+// Basic Page class.
 // Pulls in a response and a body and uses those elements in tandem with
-// cheerio to set basic properties of the class itself. 
+// cheerio to set basic properties of the class itself.
 
-function Page(type, res, body) {
+var Page = function(url) {
+    var self = this;
 
-    var type = type;
-    this.type = getType();
-    this.response = res;
-    this.statusCode = res.statusCode;
-    this.body = body;
-    this.html = getParseStrategy();
+    self.url = url;
 
-    this.title = this.html('title').text();
-    
-    this.metaDescription = this.html('meta[name=description]').attr('content');
-    
-    this.metaAuthor = this.html('meta[name=author]').attr('content');
-    
-    this.metaKeywords = this.html('meta[name=keywords]').attr('content');
-    
-    this.getLinks = function() {
-        var links = {};
-        var temp = this.html;
-        temp('a').each(function() {
-            var link = temp(this);
-            var text = link.text();
-            var href = link.attr('href');
-            links[text] = href;
-        });
-        return links;
-    }
+    console.log("fetching " + self.url + "\n");
+    request(this.url, function (err, res, body) {
+        if (err) throw err;
 
-    this.getSummary = function() {
-        var summary = {
-            'title': this.title,
-            'metaDescription': this.metaDescription,
-            'metaAuthor': this.metaAuthor,
-            'metaKeywords': this.metaKeywords,
-        };  
-        return summary;  
-    }
+        console.log(self.url + " fetched\n");
 
-    function getParseStrategy() {
-        if (type == 'static') {
-            return cheerio.load(fs.readFileSync(body).toString());
-        } else if (type == 'dynamic') {
-            return cheerio.load(body);
-        }
-    }
+        self.html = cheerio.load(body);
 
-    function getType() {
-        return type;
-    }
-}
-
-// This is actually the heart of the matter. It's a function that will
-// accept a URL parameter, go get it and then create a simple Page object
-// and then print out the description of the page. 
-
-function get(url) {
-    console.log("Going to " + url);
-    request(url, function (err, res, body) {
-        if (err) throw err; 
-
-        var testPage = new Page('dynamic', res, body);
-
-        if (testPage.statusCode == 200) {
-            console.log(testPage.getSummary());    
-            console.log(testPage.getLinks());
-        }
+        console.log(self.summary());
+        //console.log(self.links());
     });
 }
 
-// Simple array of URLs
+Page.prototype.title = function() {
+    var self = this;
+
+    return self.html('title').text();
+};
+
+Page.prototype.metaDescription = function() {
+    var self = this;
+
+    return self.html('meta[name=description]').attr('content');
+}
+
+Page.prototype.metaAuthor = function() {
+    var self = this;
+
+    return self.html('meta[name=author]').attr('content');
+}
+
+Page.prototype.metaKeywords = function() {
+    var self = this;
+
+    return self.html('meta[name=keywords]').attr('content');
+}
+
+Page.prototype.summary = function() {
+    var self = this;
+
+    return {
+        title: self.title(),
+        metaDescription: self.metaDescription(),
+        metaAuthor: self.metaAuthor(),
+        metaKeywords: self.metaKeywords()
+    };
+};
+
+Page.prototype.links = function() {
+    var self = this;
+
+    return _.map(self.html('a'), function(value, key, list) {
+        var link = self.html(value);
+        return {
+            text: link.text(),
+            href: link.attr('href')
+        }
+    });
+}
 
 var urls = [
     "http://www.google.com",
     "http://www.yahoo.com",
     "http://www.espn.com",
     "http://www.chicagotribune.com",
-]
+];
 
-// Ah ha! Some wild and crazy stuff. Asynchronously run through the list of
-// URLs and pass in the get function.  
+// The asych happens, but not here
 
-async.each(urls, get, function(err) {
-    if (err) throw err;
-})
+_.each(urls, function(element, index, list){
+    var page = new Page(element);
+});
 
