@@ -1,15 +1,16 @@
 /*jslint node: true */
 
 'use strict';
+                                        // Node 'built ins'
+var fs = require('fs');                 // - File System
+var events = require('events');         // - Event Emitter
+var util = require('util');             // - Convenience 
 
-var fs = require('fs');                 // One of Node's 'batteries included'
-
+                                        // External libraries
+var _ = require('underscore');          // Make my life more like Python
 var async = require('async');           // Do things asynchronously
 var cheerio = require('cheerio');       // Parser with jQuery API - no DOM
 var request = require('request');       // Make requests and get responses
-var _ = require('underscore');
-var util = require('util');
-var events = require('events');
 
 // Basic Page class.
 // Pulls in a response and a body and uses those elements in tandem with
@@ -96,7 +97,7 @@ _.each(urls, function(element, index, list){
         console.log(page.url + " fetched\n");
 
         console.log(page.summary());
-        //console.log(page.links());
+        console.log(page.links());
     });
 });
 
