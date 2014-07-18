@@ -11,14 +11,14 @@ var request = require('request');
 var url = 'http://www.google.com';
 
 var openAndSearch = function(url, callback) {
-    console.log('Starting.')
+    console.log('Starting.');
 
     // Open up a URL
     function get(url) {
         console.log("Going to " + url);
         request(url, function(err, res, body) {
 
-        })
+        });
     }
 
     request(url, function (err, res, body) {
@@ -30,13 +30,12 @@ var openAndSearch = function(url, callback) {
             console.log(testPage.getSummary());
         }
     });
-}
 
     console.log(url);
 
     callback();
-}
+};
 
 openAndSearch(url, function() {
     console.log('Done.');
-})
+});

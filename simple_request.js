@@ -9,7 +9,7 @@ var options = {
     headers: {
         'User-Agent': 'request 0.26.0'
     }
-}
+};
 
 var url = 'http://www.yahoo.com';
 

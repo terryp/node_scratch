@@ -1,3 +1,4 @@
+/*jslint node: true */
 
 'use strict';
 
@@ -11,7 +12,7 @@ var request = require('request');
 function get(url) {
 	console.log("\nGoing to " + url);
 	request(url, function (err, res, body) {
-		if (err) throw err; 
+		if (err) throw err;
 
 		findTitle(body, url);
 	});
@@ -31,13 +32,13 @@ var urls = [
 	"http://www.yahoo.com",
 	"http://www.espn.com",
 	"http://www.chicagotribune.com",
-]
+];
 
 async.each(urls, get, function(err) {
 	console.log("\n");
-})
+});
 
 console.log("\nThis is the order of the actual array - ");
 urls.forEach(function (u){
 	console.log(u);
-})
+});
