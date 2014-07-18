@@ -1,3 +1,4 @@
+/*jslint node: true */
 
 'use strict';
 
@@ -7,6 +8,8 @@ var async = require('async');           // Do things asynchronously
 var cheerio = require('cheerio');       // Parser with jQuery API - no DOM
 var request = require('request');       // Make requests and get responses
 var _ = require('underscore');
+var util = require('util');
+var events = require('events');
 
 // Basic Page class.
 // Pulls in a response and a body and uses those elements in tandem with
@@ -21,14 +24,14 @@ var Page = function(url) {
     request(this.url, function (err, res, body) {
         if (err) throw err;
 
-        console.log(self.url + " fetched\n");
-
         self.html = cheerio.load(body);
 
-        console.log(self.summary());
-        //console.log(self.links());
+        self.emit('fetched');
     });
-}
+};
+
+// add events to Page
+util.inherits(Page, events.EventEmitter);
 
 Page.prototype.title = function() {
     var self = this;
@@ -40,19 +43,19 @@ Page.prototype.metaDescription = function() {
     var self = this;
 
     return self.html('meta[name=description]').attr('content');
-}
+};
 
 Page.prototype.metaAuthor = function() {
     var self = this;
 
     return self.html('meta[name=author]').attr('content');
-}
+};
 
 Page.prototype.metaKeywords = function() {
     var self = this;
 
     return self.html('meta[name=keywords]').attr('content');
-}
+};
 
 Page.prototype.summary = function() {
     var self = this;
@@ -73,9 +76,9 @@ Page.prototype.links = function() {
         return {
             text: link.text(),
             href: link.attr('href')
-        }
+        };
     });
-}
+};
 
 var urls = [
     "http://www.google.com",
@@ -88,5 +91,12 @@ var urls = [
 
 _.each(urls, function(element, index, list){
     var page = new Page(element);
+    page.on('fetched', function(){
+        console.log("\n=========================================================\n");
+        console.log(page.url + " fetched\n");
+
+        console.log(page.summary());
+        //console.log(page.links());
+    });
 });
 
