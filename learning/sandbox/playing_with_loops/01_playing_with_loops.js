@@ -36,9 +36,10 @@ items.forEach(function(i) {                     // is a for-each loop which
 console.log("\n");                              // list comprehension.
 
 
-var async = require('async');                   // Needed for later. This is
-                                                // akin to importing a library
-                                                // in Python. 
+var async = require('async');                   // Now that we've taken a look
+                                                // at the built in ways to do
+                                                // this, how about using 
+                                                // external libs.
 
 console.log("Async Looping");                   // Still another way, async!
 var add_one = function(x, doneCallback) {       // Need to define a function
@@ -50,3 +51,8 @@ var add_one = function(x, doneCallback) {       // Need to define a function
 async.each(items, add_one, function(err) {
 	console.log("\n");
 })
+
+var _ = require('underscore');                  // What about the underscore.js?
+
+console.log("Underscore Looping - Each")
+_.each(items, function(num) { console.log(num + 1); });
