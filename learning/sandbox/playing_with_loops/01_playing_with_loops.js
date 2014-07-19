@@ -55,4 +55,6 @@ async.each(items, add_one, function(err) {
 var _ = require('underscore');                  // What about the underscore.js?
 
 console.log("Underscore Looping - Each")
-_.each(items, function(num) { console.log(num + 1); });
+_.each(items, function(num) { 
+    console.log(num + 1); 
+});

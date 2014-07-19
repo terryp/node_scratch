@@ -24,11 +24,7 @@ var openAndSearch = function(url, callback) {
     request(url, function (err, res, body) {
         if (err) throw err;
 
-        var testPage = new Page('dynamic', res, body);
-
-        if (testPage.statusCode == 200) {
-            console.log(testPage.getSummary());
-        }
+        // FIRME
     });
 
     console.log(url);
