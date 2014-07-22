@@ -2,18 +2,19 @@
 
 'use strict';
 
+/*
+http://stackoverflow.com/questions/6158933/how-to-make-an-http-post-request-in-node-js
+*/
+
 var util = require('util');
 var request = require('request');
+var cheerio = require('cheerio');
 
-var url = 'http://www.google.com';
-
-var r = request.get(url, function(err, res, body) {
-    if (err) throw err;
-
-    console.log('Success!');
-    console.log(res.statusCode);
-    console.log(body);
-});
-
-var form = r.form();
-form.append('gbqfq', 'Filling Out Forms in Node.js');
+request.post(
+    'http://www.imdb.com',
+    { 'navbar-form' : { 'q': 'Top Secret' } },
+    function(err, res, body) {
+        var html = cheerio.load(body)
+        console.log(html('title').text());
+     }
+);
