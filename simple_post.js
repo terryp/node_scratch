@@ -11,10 +11,12 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 request.post(
-    'http://www.imdb.com',
-    { 'navbar-form' : { 'q': 'Top Secret' } },
+    'http://www.imdb.com/find',
+    { form : { 'q': 'Top Secret' } },
     function(err, res, body) {
-        var html = cheerio.load(body)
+        if (err) throw err;
+        var html = cheerio.load(body);
+        console.log(res.statusCode);
         console.log(html('title').text());
      }
 );
