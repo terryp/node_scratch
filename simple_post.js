@@ -14,23 +14,55 @@ var util = require('util');
 var request = require('request');
 var cheerio = require('cheerio');
 
-// var attemptOne = request.post(
+
+// var WORKING = request.get(
+//     'http://www.imdb.com/find?q=Top+Secret',
+//     function(err, res, body) {
+//         console.log(res.statusCode);
+//         var html = cheerio.load(body);
+//         console.log(html('title').text());
+//         console.log(html('.findSearchTerm').text());
+//     }
+// );
+
+request.post(
+    'http://get-started.devry.edu/form-ajax',
+    { form : { 
+        'current_step': 'default',
+        'form_classroom_preference' : 'Online' 
+    }},
+    function(err, res, body) {
+        if (err) throw err;
+        console.log(res.request.uri);
+        console.log(res.request.response.headers.location);
+        console.log(res.statusCode);
+        console.log(body);
+        // var html = cheerio.load(body);
+        // console.log(html('title').text());
+    }
+);
+
+// request.post(
 //     'http://www.imdb.com/find',
 //     { form : { 'q': 'Top+Secret' } },
 //     function(err, res, body) {
-//         //if (err) throw err;
-//         var html = cheerio.load(body);
+//         if (err) throw err;
 //         console.log(res.statusCode);
-//         // OK ... where in the fuck, am I?!
+
+//         console.log(util.inspect(res));
+
+//         OK ... where in the fuck, am I?!
 //         console.log(res.request.uri);
 //         console.log(res.request.response.headers.location);
-//         // OK, I think I should be where I am at ... and yet ... 
+        
+//         OK, I think I should be where I am at ... and yet ... 
+//         var html = cheerio.load(body);
 //         console.log(html('title').text());
 //      }
 // );
 
-var attemptTwo = request.post('http://www.imdb.com/find').form(
-    { 'q': 'Top+Secret!'}
-);
+// var attemptTwo = request.post('http://www.imdb.com/find').form(
+//     { 'q': 'Top+Secret!'}
+// );
 
-console.log(util.inspect(attemptTwo));
+// console.log(util.inspect(attemptTwo));
