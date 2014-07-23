@@ -1,4 +1,23 @@
 
+
+Ideas
+=====
+
+- Browser should be able to:
+  - Fetch resources.
+  - Return page objects. 
+  - Emit events that say what it has done.
+  - Keep a history of where you've gone. 
+  - Have a cookie jar that you can look into. 
+
+- Pages should be able to:
+  - Parse a raw HTML payload.
+  - Sometimes with a DOM - sometimes without. 
+    
+
+References
+==========
+
 You Don't Know JS
 -----------------
 

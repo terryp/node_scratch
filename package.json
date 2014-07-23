@@ -16,14 +16,15 @@
   "dependencies": {
     "async": "0.9.0",
     "cheerio": "0.17.0",
+    "events": "^1.0.1",
     "express": "4.x",
     "form-data": "0.1.4",
     "html5": "0.4.1",
     "jsdom": "0.10.6",
     "request": "2.26.0",
+    "superagent": "~0.18.2",
     "underscore": "^1.6.0",
-    "util": "^0.10.3",
-    "events": "^1.0.1"
+    "util": "^0.10.3"
   },
   "devDependencies": {
     "gulp": "^3.8.6",
