@@ -2,10 +2,20 @@
 'use strict';
 
 var fs = require('fs');
+var http = require('http');
+
 var cheerio = require('cheerio');
+var request = require('request');
 
 var raw = fs.readFileSync('./index.html').toString();
 var html = cheerio.load(raw);
+
+var moreRaw = request('http://www.imdb.com', function(err, res, body) {
+    if (err) throw err;
+    return cheerio.load(body);
+});
+
+console.log(moreRaw);
 
 var getLinks = function() {
     var links = {};
