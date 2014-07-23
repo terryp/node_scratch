@@ -15,32 +15,34 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 
-// var WORKING = request.get(
-//     'http://www.imdb.com/find?q=Top+Secret',
-//     function(err, res, body) {
-//         console.log(res.statusCode);
-//         var html = cheerio.load(body);
-//         console.log(html('title').text());
-//         console.log(html('.findSearchTerm').text());
-//     }
-// );
-
-request.post(
-    'http://get-started.devry.edu/form-ajax',
-    { form : { 
-        'current_step': 'default',
-        'form_classroom_preference' : 'Online' 
-    }},
+request.get(
+    'http://www.imdb.com/find?q=Top+Secret',
     function(err, res, body) {
-        if (err) throw err;
-        console.log(res.request.uri);
-        console.log(res.request.response.headers.location);
         console.log(res.statusCode);
-        console.log(body);
-        // var html = cheerio.load(body);
-        // console.log(html('title').text());
+        var html = cheerio.load(body);
+        console.log(html('title').text());
+        console.log(html('.findSearchTerm').text());
     }
 );
+
+// FIXME / This is spitting 500s
+//
+// request.post(
+//     'http://get-started.devry.edu/form-ajax',
+//     { form : { 
+//         'current_step': 'default',
+//         'form_classroom_preference' : 'Online' 
+//     }},
+//     function(err, res, body) {
+//         if (err) throw err;
+//         console.log(res.request.uri);
+//         console.log(res.request.response.headers.location);
+//         console.log(res.statusCode);
+//         console.log(body);
+//         // var html = cheerio.load(body);
+//         // console.log(html('title').text());
+//     }
+// );
 
 // request.post(
 //     'http://www.imdb.com/find',
