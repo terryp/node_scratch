@@ -2,7 +2,7 @@
 
 'use strict';
 
-var socketio = require('socketio');
+var socketio = require('socket.io');
 var io; 
 var guestNumber = 1;
 var nickNames = {};
@@ -18,7 +18,7 @@ exports.listen = function(server) {
         joinRoom(socket, 'Lobby');
         
         handleMessageBroadcasting(socket, nickNames);
-        handleNameChangeAttemptes(socket, nickNames, namesUsed);
+        handleNameChangeAttempts(socket, nickNames, namesUsed);
         handleRoomJoining(socket);
 
         socket.on('rooms', function() { 
@@ -45,7 +45,7 @@ function joinRoom(socket, room) {
     currentRoom[socket.id] = room;
     socket.emit('joinResult', {room: room});
     socket.broadcast.to(room).emit('message', {
-        text: nickNames[socket.id] + ' has joined ' + room + '.';
+        text: nickNames[socket.id] + ' has joined ' + room + '.'
     });
 
     var usersInRoom = io.sockets.clients(room);
@@ -85,7 +85,7 @@ function handleNameChangeAttempts(socket, nickNames, namesUsed) {
                     name: name
                 });
                 socket.broadcast.to(currentRoom[socket.id]).emit('message', {
-                    text: previousName + ' is now known as ' + name + '.';
+                    text: previousName + ' is now known as ' + name + '.'
                 });
             } else {
                 socket.emit('nameResult', {
