@@ -38,6 +38,9 @@ var revisedGetForm = function() {
     html('form').each(function() {
         var form = html(this);
         var name = form.attr('name');
+        if (typeof name = 'undefined') {
+            name = form.attr('id');
+        }
         var action = form.attr('action');
         var method = form.attr('method')
         forms[name] = {'action': action, 'method': method};

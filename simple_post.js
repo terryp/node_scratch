@@ -14,57 +14,57 @@ var util = require('util');
 var request = require('request');
 var cheerio = require('cheerio');
 
+var targetUrl = 'http://www.imdb.com';
 
-request.get(
-    'http://www.imdb.com/find?q=Top+Secret',
-    function(err, res, body) {
-        console.log(res.statusCode);
-        var html = cheerio.load(body);
-        console.log(html('title').text());
-        console.log(html('.findSearchTerm').text());
-    }
-);
+request.get(targetUrl, function(err, res, body) {
+    if (err) throw err;
+    parsePage(body, res);
+});
 
-// FIXME / This is spitting 500s
-//
-// request.post(
-//     'http://get-started.devry.edu/form-ajax',
-//     { form : { 
-//         'current_step': 'default',
-//         'form_classroom_preference' : 'Online' 
-//     }},
-//     function(err, res, body) {
-//         if (err) throw err;
-//         console.log(res.request.uri);
-//         console.log(res.request.response.headers.location);
-//         console.log(res.statusCode);
-//         console.log(body);
-//         // var html = cheerio.load(body);
-//         // console.log(html('title').text());
-//     }
-// );
 
-// request.post(
-//     'http://www.imdb.com/find',
-//     { form : { 'q': 'Top+Secret' } },
-//     function(err, res, body) {
-//         if (err) throw err;
-//         console.log(res.statusCode);
+function parsePage(body, res) {
+    var formDetail = {};
+    var html = cheerio.load(body);
 
-//         console.log(util.inspect(res));
+     html('form').each(function() {
+        var form = html(this);
+        var name = form.attr('name');
+        if (name === undefined) {
+            name = form.attr('id');
+        }
+        var action = form.attr('action');
+        var method = form.attr('method')
+        formDetail[name] = {'action': action, 'method': method};
+    });
 
-//         OK ... where in the fuck, am I?!
-//         console.log(res.request.uri);
-//         console.log(res.request.response.headers.location);
-        
-//         OK, I think I should be where I am at ... and yet ... 
-//         var html = cheerio.load(body);
-//         console.log(html('title').text());
-//      }
-// );
+    var fields = {};
+    
+    html('form input').each(function() {
+        var field = html(this);
+        var id = field.attr('id');
+        var type = field.attr('type');
+        var name = field.attr('name');
+        fields[id] = {'type': type, 'name': name};
+    });
 
-// var attemptTwo = request.post('http://www.imdb.com/find').form(
-//     { 'q': 'Top+Secret!'}
-// );
+    formDetail.fields = fields;   
 
-// console.log(util.inspect(attemptTwo));
+    submitForm(targetUrl, formDetail);
+}
+
+function submitForm(targetUrl, formDetail) {
+    var path = targetUrl + formDetail['navbar-form']['action'];
+    var action = formDetail['navbar-form']['method'];
+    var field = formDetail['fields']['navbar-query']['name'];
+
+    request.get(path + "?q=Top+Secret", function(err, res, body) {
+        if (err) throw err;
+        processResult(res, body);
+    })
+}
+
+function processResult(res, body) {
+    var html = cheerio.load(body);
+    console.log(html('title').text());
+    console.log(html('.findSearchTerm').text());
+}
