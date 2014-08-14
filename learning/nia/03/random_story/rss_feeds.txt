@@ -1,0 +1,3 @@
+http://feeds.gawker.com/gizmodo/full
+http://feeds.gawker.com/io9/full
+http://pitchfork.com/rss/news/
