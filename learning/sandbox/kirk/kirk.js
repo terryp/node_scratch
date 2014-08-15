@@ -1,4 +1,29 @@
 
+// Description:
+//   A collection of logs from Star Trek: The Original Series.
+//   There are five kinds of logs specifically:
+//   1. Captain's Log
+//   2. Enterprise Log
+//   3. Personal Log
+//   4. Medical Log
+//   5. Ship's Log
+//
+// Dependencies:
+//   None
+//
+// Configuration:
+//   None
+//
+// Commands:
+//   hubot captain's log - returns a random captain's log entry
+//   hubot enterprise log - returns a random enterprise log entry
+//   hubot personal log - returns a random personal log entry
+//   hubot medical log - returns a random medical log entry
+//   hubot ship's log - returns a random ship's log entry
+//
+// Author:
+//   Terry Peppers
+
 var rawLogs = {
     "Captain's Log" : [
         {stardate: "1312.4.", entry: "The impossible has happened. From directly ahead, we're picking up a recorded distress signal, the call letters of a vessel which has been missing for over two centuries. Did another Earth ship once probe out of the galaxy as we intend to do? What happened to it out there? Is this some warning they've left behind?"},
@@ -234,7 +259,13 @@ var rawLogs = {
 }
 
 function getLogEntry(type) {
-    var logs = rawLogs[type];
+    if (type == 'any') {
+        var logTypes = Object.keys(rawLogs);
+        type = logTypes[Math.floor(Math.random() * logTypes.length)];
+    }
+    
+    console.log(type);
+    var logs = rawLogs[type];    
     
     var min = 0;
     var max = logs.length - 1;
@@ -244,8 +275,19 @@ function getLogEntry(type) {
     var stardate = logs[randomNumber]["stardate"];
     var entry = logs[randomNumber]["entry"];
 
-    console.log(randomNumber);
     console.log('%s / Stardate: %s / %s', type, stardate, entry);
 }
 
+
+console.log(".............CAPTAIN\n");
 getLogEntry("Captain's Log");
+console.log(".............ENTERPRISE\n");
+getLogEntry("Enterprise Log");
+console.log(".............PERSONAL\n");
+getLogEntry("Personal Log");
+console.log(".............MEDICAL\n");
+getLogEntry("Medical Log");
+console.log(".............SHIP\n");
+getLogEntry("Ship's Log");
+console.log(".............ANY\n");
+getLogEntry("any");
