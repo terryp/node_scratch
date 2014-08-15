@@ -20,6 +20,7 @@
 //   hubot personal log - returns a random personal log entry
 //   hubot medical log - returns a random medical log entry
 //   hubot ship's log - returns a random ship's log entry
+//   hubot stardate - returns a version of stardate
 //
 // Author:
 //   Terry Peppers
@@ -278,22 +279,69 @@ function getLogEntry(type) {
     console.log('%s / Stardate: %s / %s', type, stardate, entry);
 }
 
-function getStarDate() {
+function getStardate(type) {
     var date = new Date();
     var year = Number(date.getFullYear());
     var month = Number(date.getMonth() + 1);
     var day = Number(date.getDate());
-    var baseYear = 2005;
-    var starYear = 58000 + (year - baseYear) * 1000;
-    var starDate = starYear + (month * 30 + day) * 2.7;
-    console.log('Stardate: %s', starDate);
+    
+    switch(type) {
+        case "classic":
+            var baseYear = 2005;
+            var starYear = 58000 + (year - baseYear) * 1000;
+            var starDate = starYear + (month * 30 + day) * 2.7;
+            console.log('Stardate: %s', starDate);
+            break;
+        default:
+            var start = new Date(year,0);
+            var elapsed = date - start;
+            elapsed = Math.floor(elapsed / 86400000);
+            elapsed = elapsed / 365;
+            elapsed = elapsed.toString().substring(2,4);
+            console.log("Stardate: %s.%s", year, elapsed);
+            break;
+    }
+}
+
+module.exports = function(robot) {
+    robot.hear(/captain'?s\slog/i, function(msg) {
+        msg.send(getLogEntry("Captain's Log"));
+    });
+
+    robot.hear(/enterprise\slog/i, function(msg) {
+        msg.send(getLogEntry("Enterprise Log"));
+    });
+
+    robot.hear(/personal\slog/i, function(msg) {
+        msg.send(getLogEntry("Personal Log"));
+    });
+
+    robot.hear(/medical\slog/i, function(msg) {
+        msg.send(getLogEntry("Medical Log"));
+    });
+
+    robot.hear(/ship'?s\slog/i, function(msg) {
+        msg.send(getLogEntry("Ship's Log"));
+    });
+
+    robot.hear(/shatner|kirk|star\strek/i, function(msg) {
+        msg.send(getLogEntry("any"));
+    });
+
+    robot.hear(/stardate/i, function(msg) {
+        msg.send(getStardate());
+    });
+
+    robot.hear(/stardate\sclassic/i, function(msg) {
+        msg.send(getStardate("classic"));
+    });
 }
 
 
 console.log(".............CAPTAIN\n");
 getLogEntry("Captain's Log");
 console.log(".............ENTERPRISE\n");
-getLogEntry("Enterprise Log");
+getLogEntry("Enterprise Log")
 console.log(".............PERSONAL\n");
 getLogEntry("Personal Log");
 console.log(".............MEDICAL\n");
@@ -303,4 +351,4 @@ getLogEntry("Ship's Log");
 console.log(".............ANY\n");
 getLogEntry("any");
 console.log(".............STARDARTE\n");
-getStarDate();
+getStardate("classic");
