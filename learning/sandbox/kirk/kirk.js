@@ -278,6 +278,17 @@ function getLogEntry(type) {
     console.log('%s / Stardate: %s / %s', type, stardate, entry);
 }
 
+function getStarDate() {
+    var date = new Date();
+    var year = Number(date.getFullYear());
+    var month = Number(date.getMonth() + 1);
+    var day = Number(date.getDate());
+    var baseYear = 2005;
+    var starYear = 58000 + (year - baseYear) * 1000;
+    var starDate = starYear + (month * 30 + day) * 2.7;
+    console.log('Stardate: %s', starDate);
+}
+
 
 console.log(".............CAPTAIN\n");
 getLogEntry("Captain's Log");
@@ -291,3 +302,5 @@ console.log(".............SHIP\n");
 getLogEntry("Ship's Log");
 console.log(".............ANY\n");
 getLogEntry("any");
+console.log(".............STARDARTE\n");
+getStarDate();
