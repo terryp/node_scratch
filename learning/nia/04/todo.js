@@ -51,6 +51,8 @@ var server = http.createServer(function(req, res) {
             break;
         case 'PUT':
             if (checkRequest(i)) {
+                // something about byte codes
+                // see GET
                 items[i] = i;
                 res.end('OK\n');
             }
