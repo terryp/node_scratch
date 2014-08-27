@@ -40,8 +40,8 @@ function countWordsInText(text) {
 
 fs.readdir(filesDir, function(err, files) { 
     if (err) throw err;
-    for(var index in files) {
-        var task = (function(file) { 
+    for (var index in files) {
+        var task = (function (file) { 
             return function() {
                 fs.readFile(file, function(err, text) {
                     if (err) throw err;
