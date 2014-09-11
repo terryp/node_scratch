@@ -16,7 +16,8 @@ console.log(fileName);
 //
 // request.get(targetGif).pipe(fs.createWriteStream(fileName));
 
-request.get(targetGif, function(err, res, body) {
+var r = request.get(targetGif, function(err, res, body) {
     if (err) throw err;
-    req.pipe(fs.createWriteStream(fileName));
 });
+
+r.pipe(fs.createWriteStream(fileName));
