@@ -13,19 +13,20 @@ var viewports = {
 
 var url = 'http://qa.get-started.devry.edu/non-brand';
 
-_.each(viewports, function(view) {
+function shoot(file, w, h) {
     var page = webPage.create();
-    page.viewportSize = { 
-        width: view.width, 
-        height: view.height 
+    page.viewportSize = {
+        width: w,
+        height: h
     };
-    page.open(url, function(status) { 
-        if (status !== 'success') {
-            console.log('Error getting page');
-        } else {
-            
-        }
-        page.render(view.width + 'x' + view.height + '.png');
+    page.open(url);
+    page.onLoadFinished = function() {
+        page.render(file);
         phantom.exit();
-    });
+    };
+}
+
+_.each(viewports, function(view) {
+    var file = view.width + 'x' + view.height + '.png';
+    shoot(file, view.width, view.height);
 });
