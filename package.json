@@ -25,7 +25,8 @@
     "request": "2.26.0",
     "superagent": "~0.18.2",
     "underscore": "^1.6.0",
-    "util": "^0.10.3"
+    "util": "^0.10.3",
+    "xmlhttprequest": "~1.6.0"
   },
   "devDependencies": {
     "gulp": "^3.8.6",
