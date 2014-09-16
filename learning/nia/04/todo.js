@@ -7,6 +7,18 @@ var url = require('url');
 
 var items = [];
 
+// This is a 'Node in Action' exercise. The goal is to create a small web server
+// that leverages RESTful technology to create a simple TODO list. 
+// 
+// The commands that you can use to look @ stuff are the following:
+//
+
+//  - GET / curl http://127.0.0.1:3000
+//  - POST / curl -x POST 'TODO LIST ITEM' http://127.0.0.1:3000
+//  - or - 
+//  - POST / curl -d 'TODO LIST ITEM' http://127.0.0.1:3000
+//  - DELETE / curl -x DELETE http://127.0.0.1:3000/<TODO LIST ITEM ID>
+
 var server = http.createServer(function(req, res) {
     var path = url.parse(req.url).pathname;
     var i = parseInt(path.slice(1), 10);
