@@ -3,12 +3,18 @@
 
 ## Introduction
 
-Yep, here's another talk on Node.js! Why, I have no idea. But I've been doing more programming in my spare time and I showed Manderson some of my code and he graciously cleaned it up and included a little tidbit that inspired this talk. 
+Yep, here's another talk on Node.js! Why? I have no idea. But I've been doing more programming in my spare time and I showed Manderson some of my code and he graciously cleaned it up and included a little tidbit that inspired this talk. 
 
-## Flow Control
+## Cue Events
 
-I'm still struggling with the primary notion of flow control in Node.js. I attribute this to two things: 1) I'm not a very good programmer and 2) I don't naturally think asynchronously. Thinking serially or procedurely means decidedly less planning - it's easier and it's performant, until it isn't. 
+I was working on some automated scraping strategies using Node, and I shared the repository with Manderson. As one would expect, Manderson made some awesome comments. 
 
-What I've learned is that there are two pretty good strategies for dealing with control flow (1) Callbacks and (2) Events. 
+https://github.com/terryp/node_scratch/commit/3aa500ae413d44b3c123b226529ea11ed2476a3e
 
-## 
+That one was funny, but it was this one that got me thinking. 
+
+https://github.com/terryp/node_scratch/commit/7e8a958eeab194b4067d87e6f77cc22886aa1e33
+
+## Event Emitter
+
+Callback hell is a real thing and doing control flow in a language that is designed to be asynchronous is definitely weird. Events are a built-in element of Node that 

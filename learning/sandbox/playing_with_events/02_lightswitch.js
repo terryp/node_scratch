@@ -13,8 +13,10 @@ var LightSwitch = function(state) {
 util.inherits(LightSwitch, events.EventEmitter);
 
 LightSwitch.prototype.changeState = function() {
+    // FIXME ... maybe give this a name so I can refer to it easier. 
+    
     var self = this;
-    // FIXME use if else
+
     if (self.state == 'on') {
         self.state = 'off';
         self.emit('off');
@@ -29,13 +31,24 @@ var LightBulb = function(LightSwitch) {
     self.state = 'off';
     self.switch = LightSwitch;
 
-    self.switch.on('on', function() {
+    // self.switch.on('on', function() {
+    //     self.state = 'on';
+    // });
+    
+    // self.switch.on('off', function() {
+    //     self.state = 'off';
+    // });
+
+    LightSwitch.on('on', function() {
         self.state = 'on';
+        // FIXME show your state, talk about yourself. 
     });
     
-    self.switch.on('off', function() {
+    LightSwitch.on('off', function() {
         self.state = 'off';
+        // FIXME show your state, talk about yourself. 
     });
+
 };
 
 LightBulb.prototype.currentState = function() {
@@ -44,6 +57,9 @@ LightBulb.prototype.currentState = function() {
     console.log('The light bulb is ' + self.state);
     console.log('\n');
 }
+
+// FIXME - Maybe add a FuseBox object that registers the state of switch and 
+// the correlation to a light bulb. 
 
 var hallwayLightSwitch = new LightSwitch();
 
