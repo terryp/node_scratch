@@ -14,10 +14,10 @@ var items = [];
 //
 
 //  - GET / curl http://127.0.0.1:3000
-//  - POST / curl -x POST 'TODO LIST ITEM' http://127.0.0.1:3000
+//  - POST / curl -i -x POST 'TODO LIST ITEM' http://127.0.0.1:3000
 //  - or - 
 //  - POST / curl -d 'TODO LIST ITEM' http://127.0.0.1:3000
-//  - DELETE / curl -x DELETE http://127.0.0.1:3000/<TODO LIST ITEM ID>
+//  - DELETE / curl -i -x DELETE http://127.0.0.1:3000/<TODO LIST ITEM ID>
 
 var server = http.createServer(function(req, res) {
     var path = url.parse(req.url).pathname;
