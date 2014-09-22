@@ -14,6 +14,9 @@ References I'm Using to Work Through the Shizzle
 - jstgp / "JavaScript the Good Parts" - Crockford
   - http://javascript.crockford.com/private.html
 
+- lynjs / "Learn You Node.js"
+  - https://github.com/rvagg/learnyounode
+
 - nia / "Node in Action" - Cantelon, Harter, Holowaychuk and Rajlich
   - http://www.manning.com/cantelon/
 
