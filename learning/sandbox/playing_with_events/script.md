@@ -1,4 +1,8 @@
 
+FOR CODE SLIDES
+
+highlight -O rtf 02_lightswitch.js --line-numbers --font-size 24 --font Inconsolata --style solarized-dark -W -J 50 -j 3 --src-lang javascript | pbcopy
+
 # Emitting Events
 
 ## Introduction
@@ -17,4 +21,12 @@ https://github.com/terryp/node_scratch/commit/7e8a958eeab194b4067d87e6f77cc22886
 
 ## Event Emitter
 
-Callback hell is a real thing and doing control flow in a language that is designed to be asynchronous is definitely weird. Events are a built-in element of Node that 
+Callback hell is a real thing and doing control flow in a language that is designed to be asynchronous is definitely weird. Events are a built-in element of Node that can provide some nice things. 
+
+## Disclaimer
+
+I'll be honest, I don't think I know what I'm doing here. So I'm certain I'm either doing something incorrect or there's a better way of doing it. I did open a Stack Overflow question to see what people think about this solution - that's here if you're interested. 
+
+http://stackoverflow.com/questions/25899698/node-event-emitter-example
+
+

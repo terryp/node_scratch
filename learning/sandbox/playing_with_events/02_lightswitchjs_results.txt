@@ -1,0 +1,20 @@
+--------- EVERYTHING IS OFF --------------
+Switch is off
+Bulb is off
+
+
+------------ LIGHTS ON! ------------------
+The switch is on
+The light bulb is on
+
+
+------------ LIGHTS OFF! -----------------
+The switch is off
+The light bulb is off
+
+
+------------ LIGHTS ON! -----------------
+The switch is on
+The light bulb is on
+
+
