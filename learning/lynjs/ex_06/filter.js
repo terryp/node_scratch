@@ -16,11 +16,6 @@ var filter = function(directory, filter, callback) {
                     results.push(files[i]);
                 }
             }
-            // files.forEach(function(file) {
-            //     if (path.extname(file).match(filter)) {
-            //         results.push(file);
-            //     }
-            // });
         }
         callback(null, results);
     });
