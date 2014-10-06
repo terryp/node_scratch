@@ -17,6 +17,9 @@ References I'm Using to Work Through the Shizzle
 - lynjs / "Learn You Node.js"
   - https://github.com/rvagg/learnyounode
 
+- mt / "Mastering JavaScript's 'this'"
+  - http://derickbailey.com/email-courses/masteringthis/
+
 - nia / "Node in Action" - Cantelon, Harter, Holowaychuk and Rajlich
   - http://www.manning.com/cantelon/
 
