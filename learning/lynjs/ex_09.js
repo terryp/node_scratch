@@ -1,3 +1,4 @@
+/*jslint node: true */
 
 'use strict';
 
@@ -6,39 +7,40 @@ var url = require('url');
 
 var _ = require('underscore');
 
-var one = url.parse(process.argv[2]);
-var two = url.parse(process.argv[3]);
-var three = url.parse(process.argv[4]);
+var urls = [process.argv[2], process.argv[3], process.argv[4]];
 
-var urls = [one.href, two.href, three.href];
+urls = _.each(urls, function(u) {
+    url.parse(u).href;
+});
 
-var downloadAndReport = function(url) {
-    var results = {}
-    var result = [];
+var results = [];
+var count = 0;
 
+function showReport() {
+    _.each(results, function(r) {
+        console.log(results[r]);
+    });
+}
+
+function downloadAndReport(url) {
     http.get(url, function(response) {
         response.setEncoding('utf8');
-        
+
         response.on('data', function(chunk) {
-            result.push(chunk);
+            results[url] = chunk;
+            count++;
         });
-        
+
         response.on('error', console.error);
 
         response.on('end', function() {
-            result = result.join('');
-            results[url] = result;
-            console.log(results);
+            console.log(count);
+            console.log(results[url]);
+            // if (count == '3') {
+            //     showReport();
+            // }
         });
     });
-};
+}
 
 _.each(urls, downloadAndReport);
-
-// async.eachSeries(urls, downloadAndReport, function(err) {
-//     console.log(err);
-// })
-
-// for (var i=0; i < urls.length; i++) {
-//     downloadAndReport(urls[i].href);
-// }
