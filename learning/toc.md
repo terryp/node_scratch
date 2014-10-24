@@ -8,6 +8,9 @@ References I'm Using to Work Through the Shizzle
 - hon / Hands on Node - Teixeira
   - http://nodetuts.com/handson-nodejs-book.html
 
+- javascripting / Nodeschool.io
+  - https://github.com/sethvincent/javascripting
+
 - jsis / JavaScript is Sexy
   - http://javascriptissexy.com/learn-node-js-completely-and-with-confidence/
 
