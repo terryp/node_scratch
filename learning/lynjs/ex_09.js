@@ -2,45 +2,30 @@
 
 'use strict';
 
-var http = require('http');
-var url = require('url');
+var http = require('http')
+var bl = require('bl')
+var results = []
+var count = 0
 
-var _ = require('underscore');
-
-var urls = [process.argv[2], process.argv[3], process.argv[4]];
-
-urls = _.each(urls, function(u) {
-    url.parse(u).href;
-});
-
-var results = [];
-var count = 0;
-
-function showReport() {
-    _.each(results, function(r) {
-        console.log(results[r]);
-    });
+function printResults () {
+  for (var i = 0; i < 3; i++)
+    console.log(results[i])
 }
 
-function downloadAndReport(url) {
-    http.get(url, function(response) {
-        response.setEncoding('utf8');
+function httpGet (index) {
+  http.get(process.argv[2 + index], function (response) {
+    response.pipe(bl(function (err, data) {
+      if (err)
+        return console.error(err)
 
-        response.on('data', function(chunk) {
-            results[url] = chunk;
-            count++;
-        });
+      results[index] = data.toString()
+      count++
 
-        response.on('error', console.error);
-
-        response.on('end', function() {
-            console.log(count);
-            console.log(results[url]);
-            // if (count == '3') {
-            //     showReport();
-            // }
-        });
-    });
+      if (count == 3) // yay! we are the last one!
+        printResults()
+    }))
+  })
 }
 
-_.each(urls, downloadAndReport);
+for (var i = 0; i < 3; i++)
+  httpGet(i)

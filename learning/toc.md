@@ -26,6 +26,9 @@ References I'm Using to Work Through the Shizzle
 - pjt / "Pro JavaScript Techniques" - Resig
   - http://www.apress.com/9781590597279
 
+- pnjs / "Practical Node.js" - Marden
+  - http://www.apress.com/9781430265955
+
 - sandbox / Random Experiments
 
 - spjs / "Speaking JavaScript" - Rauschmeyer
