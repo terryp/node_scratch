@@ -26,6 +26,9 @@ References I'm Using to Work Through the Shizzle
 - nia / "Node in Action" - Cantelon, Harter, Holowaychuk and Rajlich
   - http://www.manning.com/cantelon/
 
+- nsa / "Node Stream Adventure"
+  - https://github.com/substack/stream-adventure
+
 - pjt / "Pro JavaScript Techniques" - Resig
   - http://www.apress.com/9781590597279
 
