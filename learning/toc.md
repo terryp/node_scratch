@@ -2,8 +2,11 @@
 References I'm Using to Work Through the Shizzle
 ================================================
 
-- aon / The Art of Node
+- aon / The Art of Node - Ogden
   - https://github.com/maxogden/art-of-node
+
+- ejs / Effective JavaScript - Herman
+  - http://effectivejs.com/
 
 - hon / Hands on Node - Teixeira
   - http://nodetuts.com/handson-nodejs-book.html
