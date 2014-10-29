@@ -12,8 +12,8 @@ var tr = through(function(buffer) {
 
 var server = http.createServer(function(req, res) {
     if (req.method === 'POST') {
-        var msg = res.pipe(tr)
-        res.write(msg);
+        res.write(req.pipe(tr));
+        res.end(req.url);
     }
 });
 
