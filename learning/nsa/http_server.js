@@ -3,16 +3,15 @@
 'use strict';
 
 var http = require('http');
+var net = require('net');
 var through = require('through');
-
-var tr = through(function(buffer) {
-    buffer = buffer.toString().toUpperCase();
-    this.queue(buffer);
-});
 
 var server = http.createServer(function(req, res) {
     if (req.method === 'POST') {
-        req.pipe(tr).pipe(res);
+        req.pipe(through(function(buffer) {
+            buffer = buffer.toString().toUpperCase();
+            this.queue(buffer);
+        })).pipe(res);
     }
 });
 
