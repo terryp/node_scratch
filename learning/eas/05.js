@@ -7,14 +7,9 @@ function logItem(item) {
 }
 
 function asyncEach(arr, callback) {
-    function makeCallbackWrapper(arr, i, callback) {
-        return function() {
-            callback(arr[i]);
-        }
-    }
-
     for (var i = 0; i < arr.length; i++) {
-        setTimeout(makeCallbackWrapper(arr, i, callback), 0);
+        var boundCallback = callback.bind(null, arr[i]);
+        setTimeout(boundCallback, 0);
     }
 }
 
