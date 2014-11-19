@@ -7,6 +7,7 @@ References I'm Using to Work Through the Shizzle
 
 - eas / Embracing Async
   - http://io.pellucid.com/blog/embracing-async-in-javascript-part-1
+  - http://io.pellucid.com/blog/embracing-async-in-javascript-part-2
 
 - ejs / Effective JavaScript - Herman
   - http://effectivejs.com/
