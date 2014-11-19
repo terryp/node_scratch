@@ -44,6 +44,9 @@ References I'm Using to Work Through the Shizzle
 
 - sandbox / Random Experiments
 
+- sh / "Stream Handbook" - James Halliday / Substack
+  - https://github.com/substack/stream-handbook
+
 - spjs / "Speaking JavaScript" - Rauschmeyer
   - http://speakingjs.com/es5/
 
