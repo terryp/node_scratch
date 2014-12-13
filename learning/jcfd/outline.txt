@@ -1,0 +1,22 @@
+
+# JavaScript Closures
+
+- I'm going to talk about closures today, since I've been using the term for a very long time - and I still use it - but I have really no concept of what the hell a closure is or what it's good for. 
+
+## What Is a Closure, Part 1
+
+- From the incredible tome, "JavaScript for Dummies" Morris John's gives two very succint definitions:
+
+1. A closure is the local variables for a function - kept alive *after* the function has returned. 
+
+2. A closure is a stack-frame which is not deallocated when the function returns. 
+
+- Yeah, I don't get that either. 
+
+## What Is a Closure, Part 2
+
+- Anytime you use a 'function' within a 'function' - you're creating a closure.
+
+- Or better, an inner function that has access to the outer (enclosing) functions variables and scope chain. 
+
+## Scope Detour
