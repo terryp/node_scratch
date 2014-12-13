@@ -3,16 +3,14 @@
 'use strict';
 
 var http = require('http');
-var net = require('net');
 var through = require('through');
 
-var server = http.createServer(function(req, res) {
+var server = http.createServer(function (req, res) {
     if (req.method === 'POST') {
-        req.pipe(through(function(buffer) {
-            buffer = buffer.toString().toUpperCase();
-            this.queue(buffer);
+        req.pipe(through(function (buf) {
+            this.queue(buf.toString().toUpperCase());
         })).pipe(res);
+        res.end();
     }
 });
-
-server.listen(process.argv[2]);
+server.listen(parseInt(process.argv[2]));
