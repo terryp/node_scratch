@@ -7,6 +7,7 @@ References I'm Using to Work Through the Shizzle
 
 - eas / Embracing Async
   - http://io.pellucid.com/blog/embracing-async-in-javascript-part-1
+  - http://io.pellucid.com/blog/embracing-async-in-javascript-part-2
 
 - ejs / Effective JavaScript - Herman
   - http://effectivejs.com/
@@ -16,6 +17,9 @@ References I'm Using to Work Through the Shizzle
 
 - javascripting / Nodeschool.io
   - https://github.com/sethvincent/javascripting
+
+- jcfd / JavaScript Closures for Dummies
+  - http://web.archive.org/web/20080209105120/http://blog.morrisjohns.com/javascript_closures_for_dummies
 
 - jsis / JavaScript is Sexy
   - http://javascriptissexy.com/learn-node-js-completely-and-with-confidence/
