@@ -15,3 +15,18 @@ Here's a basic repository of things I'd like to read or cover. Yeah, I could put
 
 - Expert ES6
     - http://tagtree.io/courses/expert-es6/
+
+- Getting Started with Meteor.js
+    - http://joshowens.me/getting-started-with-meteor-js/
+
+- Understanding the Event Loop
+    - https://nodesource.com/blog/understanding-the-nodejs-event-loop
+
+- Useful Tools for Local Development
+    - http://developer.telerik.com/featured/3-useful-tools-local-development-testing/
+
+- Ternary Operator in JS
+    - http://fedojo.com/ternary-conditional-in-javascript/
+
+- Basics of Node Streams
+    - http://www.sitepoint.com/basics-node-js-streams/
