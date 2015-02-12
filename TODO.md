@@ -30,3 +30,9 @@ Here's a basic repository of things I'd like to read or cover. Yeah, I could put
 
 - Basics of Node Streams
     - http://www.sitepoint.com/basics-node-js-streams/
+
+- Designing API's for Asynchrony
+    - http://blog.izs.me/post/59142742143/designing-apis-for-asynchrony
+
+- Don't Release Zalgo
+    - https://github.com/oren/oren.github.io/blob/master/posts/zalgo.md
