@@ -36,3 +36,12 @@ Here's a basic repository of things I'd like to read or cover. Yeah, I could put
 
 - Don't Release Zalgo
     - https://github.com/oren/oren.github.io/blob/master/posts/zalgo.md
+
+- JavaScript Promises
+    - http://www.html5rocks.com/en/tutorials/es6/promises/#toc-async
+
+- Embracing Promises in JavaScript
+    - http://javascriptplayground.com/blog/2015/02/promises/
+
+- Variables and Scoping in ES6
+    - http://www.2ality.com/2015/02/es6-scoping.html
