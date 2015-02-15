@@ -2,6 +2,9 @@
 References I'm Using to Work Through the Shizzle
 ================================================
 
+- ajs / Asynchronous JS: Callbacks, Listeners, Control Flow Libs and Promises
+  - http://sporto.github.io/blog/2012/12/09/callbacks-listeners-promises/
+
 - aon / The Art of Node - Ogden
   - https://github.com/maxogden/art-of-node
 
