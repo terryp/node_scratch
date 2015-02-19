@@ -56,7 +56,7 @@ References I'm Using to Work Through the Shizzle
 - sp_ln / "Learning Node" - Powers
   - http://shop.oreilly.com/product/0636920024606.do
 
-- ydkjsao / "You Don't Know JS: Async and Performance" - Simpson
+- ydkjsap / "You Don't Know JS: Async and Performance" - Simpson
   - https://github.com/getify/You-Dont-Know-JS/tree/master/async%20%26%20performance
 
 - ydkjssc / "You Don't Know JS: Scope and Closures" - Simpson
