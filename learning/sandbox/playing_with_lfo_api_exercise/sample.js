@@ -8,13 +8,13 @@ var request = require('request');
 
 var server = http.createServer(function(req, res) {
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({ a : 1 }));
+    res.end(JSON.stringify({ a : 1 }));
 });
 
 server.listen(3000);
 
-// request('http://127.0.0.1', function(err, resp, body) {
-//     if (!err && response.statusCode == 200) {
-//         console.log(body);
-//     }
-// })
+request('http://127.0.0.1:3000', function(err, res, body) {
+    if (!err && res.statusCode == 200) {
+        console.log(body);
+    }
+})
