@@ -6,16 +6,21 @@ var http = require('http');
 
 var nock = require('nock');
 
-var api = nock('http://not_real.com')
+var server = nock('http://not_real.com')
           .persist()
           .get('/customer_scoring/')
-          .reply(200, 'Success')
-          .get('old_customer_scoring')
+          .reply(200, {
+            'propensity' : 0.26532,
+            'ranking' : 'C'
+          })
+          .get('/old_customer_scoring/')
           .reply(302, 'Redirecting')
-          .get('/forbidden')
+          .get('/forbidden/')
           .reply(403, 'Forbidden')
           .get('/')
           .reply(404, 'File Not Found');
+
+
 
 exports.test_200 = function(test) {
     http.get('http://not_real.com/customer_scoring/', function(res) {
@@ -25,28 +30,25 @@ exports.test_200 = function(test) {
         });
         res.on('end', function() {
             test.equals(res.statusCode, 200, '200 Result');
-            test.equals(s, 'Success', '200 Result Content');
+            test.equals(
+                s, 
+                {'propensity' : 0.26532, 'ranking' : 'C'}, 
+                '200 Result Content'
+            );
             test.done();
         });        
     });
 };
 
-// exports.test_302 = function(test) {
-//     http.get('http://not_real.com/old_customer_scoring/', function(res) {
-//         var s = '';
-//         res.on('data', function(data) {
-//             s += data;
-//         });
-//         res.on('end', function() {
-//             test.equals(res.statusCode, 302);
-//             // test.equals(s, 'Redirecting', '302 Result Content');
-//             test.done();
-//         });
-//     });
-// };
+exports.test_302 = function(test) {
+    http.get('http://not_real.com/old_customer_scoring/', function(res) {
+        test.equals(res.statusCode, 302);
+        test.done();
+    });
+};
 
 exports.test_403 = function(test) {
-    http.get('http://not_real.com/forbidden', function(res) {
+    http.get('http://not_real.com/forbidden/', function(res) {
         test.equals(res.statusCode, 403, '403 Result');
         test.done();
     });
@@ -61,7 +63,7 @@ exports.test_404 = function(test) {
 
 
 
-api.isDone();
+server.isDone();
 
 // var http = require('http'), 
 //     path = require('path'), 
