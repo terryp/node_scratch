@@ -33,16 +33,24 @@ var testServer = http.createServer(function(req, res) {
         return;
     }
     
+    exports
 
 });
+
 
 testServer.listen(3000);
 
 
-// module.exports = {
-//     'Test 1' : function(test) {
-//         test.expect(1);
-//         test.ok(true, 'This should pass');
-//         test.done();
-//     }
-// };
+module.exports = {
+
+    setUp: function (done) {
+        done();
+    },
+
+    test1: function(test) {
+        var target = 'http://127.0.0.1:3000/bad';
+        request(target, function (err, res, body) {
+            test.equal(res.StatusCode, 404, 'Got a 404');
+        });
+    }
+};
