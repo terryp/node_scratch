@@ -5,7 +5,6 @@
 // Node 'Batteries Included'
 var http = require('http'),
     url = require('url'),
-    util = require('util'),
     querystring = require('querystring');
 
 // External Node 'Batteries'
@@ -15,7 +14,10 @@ var nock = require('nock');
 var server = nock('http://not_real.com')
             .persist()
   
-            .get('/customer_scoring/')
+            // this is way broken in nock right now
+            // see -- https://github.com/pgte/nock/issues/82
+            // best thing I can do is hardcode, which is lamers
+            .get('/customer_scoring/?income=50000&zipcode=60201&age=35')
             .reply(200, {
               'propensity' : 0.26532,
               'ranking' : 'C'
@@ -42,7 +44,7 @@ var Api = function(url, path, qs) {
     }
 
     if (!self.path) {
-        throw new Error('Path is required.')
+        throw new Error('Path is required.');
     }
 
     if (!self.qs) {
@@ -53,19 +55,49 @@ var Api = function(url, path, qs) {
 Api.prototype.buildUrl = function() {
     var self = this;
     var qs = querystring.stringify(self.qs);
-    return url.resolve(self.url, self.path) + '?' + qs;
-}
+    var target = url.resolve(self.url, self.path) + '?' + qs;
+    return target;
+};
+
+Api.prototype.fetchData = function() {
+    var self = this;
+    http.get(self.buildUrl(), function(res) {
+        var s = '';
+        res.on('data', function(data) {
+            s += data;
+        });
+        res.on('end', function() {
+            if (!res.statusCode) {
+                throw new Error('Wow, something really went awry.');
+            } else if (res.statusCode == 302) {
+                throw new Error('Redirecting.');
+            } else if (res.statusCode == 403) {
+                throw new Error('Forbidden.');
+            } else if (res.statusCode == 404) {
+                throw new Error('File Not Found.');
+            } else {
+                console.log(res.statusCode);
+                console.log(s);    
+            }
+        });
+    });
+};
 
 var endpoint = 'http://not_real.com';
 var path = '/customer_scoring/';
 var qs = {'income': 50000, 'zipcode': 60201, 'age': 35};
 
-// DEBUG
+// DEBUG PARAMETER SETTING
 var myApi = new Api(endpoint, path, qs);
 console.log(myApi.url);
 console.log(myApi.path);
 console.log(myApi.qs);
 console.log(myApi.buildUrl());
+
+var data = myApi.fetchData();
+console.log(data);
+
+server.isDone();
 
 module.exports = Api; 
 

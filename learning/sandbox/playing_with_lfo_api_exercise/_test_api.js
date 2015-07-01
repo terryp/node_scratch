@@ -3,10 +3,10 @@
 'use strict';
 
 // Node 'Batteries Included'
-var http = require('http'),
-    url = require('url'),
-    util = require('util'),
-    querystring = require('querystring');
+var http = require('http');
+    // url = require('url'),
+    // util = require('util'),
+    // querystring = require('querystring');
 
 // Local Node 'Batteries'
 var Api = require('./api.js');
@@ -82,9 +82,26 @@ exports.testUrlBuild = function(test) {
     var myApi = new Api(target, path, qs);
     var myUrl = myApi.buildUrl();
 
-    test.equals(myUrl, 'http://foo.com/foo/?baz=bat')
+    test.equals(myUrl, 'http://foo.com/foo/?baz=bat');
     test.done();
-}
+};
+
+exports.testFetch200 = function(test) {
+    var target = 'http://not_real.com/';
+    var path = '/customer_scoring';
+    var qs = {'income' : 50000, 'zipcode' : 60201, 'age' : 35};
+
+    var myApi = new Api(target, path, qs);
+    var endpoint = myApi.buildUrl();
+
+    http.get(endpoint, function(res) {
+        res.on('end', function() {
+            test.equals(res.statusCode, 200, '200 Response');
+            test.done();
+        });
+    });
+
+};
 
 // Close the mock server
 server.isDone();
