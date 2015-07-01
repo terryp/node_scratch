@@ -38,15 +38,15 @@ var Api = function(url, path, qs) {
     self.qs = qs;
 
     if (!self.url) {
-        return new Error('ERR: URL is required.');
+        throw new Error('URL is required.');
     }
 
     if (!self.path) {
-        return new Error('ERR: Path is required.')
+        throw new Error('Path is required.')
     }
 
     if (!self.qs) {
-        return new Error('ERR: QueryString is required.');
+        throw new Error('QueryString is required.');
     }
 };
 
@@ -60,13 +60,14 @@ var endpoint = 'http://not_real.com';
 var path = '/customer_scoring/';
 var qs = {'income': 50000, 'zipcode': 60201, 'age': 35};
 
+// DEBUG
 var myApi = new Api(endpoint, path, qs);
 console.log(myApi.url);
 console.log(myApi.path);
 console.log(myApi.qs);
 console.log(myApi.buildUrl());
 
-server.isDone();
+module.exports = Api; 
 
 // exports.test_200 = function(test) {
 //     http.get('http://not_real.com/customer_scoring/', function(res) {

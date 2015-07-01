@@ -2,41 +2,89 @@
 
 'use strict';
 
-var server = require('./server.js');
+// Node 'Batteries Included'
+var http = require('http'),
+    url = require('url'),
+    util = require('util'),
+    querystring = require('querystring');
 
-var http = require('http');
+// Local Node 'Batteries'
+var Api = require('./api.js');
 
-var request = require('request');
+// External Node 'Batteries'
+var nock = require('nock');
 
-function get(url, callback) {
-    var request = http.get(url);
-    request.on('response', function(response) {
-        var responseText = '';
-        response.setEncoding('utf8');
-        response.on('data', function(chunk) {
-            responseText += chunk;
-        });
-        response.on('end', function() {
-            callback(response, responseText);
-        });
-    })
+// Mock Server
+var server = nock('http://not_real.com')
+            .persist()
+  
+            .get('/customer_scoring/')
+            .reply(200, {
+              'propensity' : 0.26532,
+              'ranking' : 'C'
+            })
+  
+            .get('/old_customer_scoring/')
+            .reply(302, 'Redirecting')
+  
+            .get('/forbidden/')
+            .reply(403, 'Forbidden')
+  
+            .get('/')
+            .reply(404, 'File Not Found');
+
+// Ahoy, unit tests!
+exports.testParams = function (test) {
+    var target = 'http://foo.com';
+    var path = '/foo/';
+    var qs = {'baz' : 'bat'};
+
+    var myApi = new Api(target, path, qs);
+    test.equals(myApi.url, 'http://foo.com', 'URL Property');
+    test.equals(myApi.path, '/foo/', 'Path Property');
+    test.deepEqual(myApi.qs, {'baz' : 'bat'});
+    test.done();
+};
+
+exports.testParamsErr = function (test) {
+    test.throws(
+        function() {
+            var target = '';
+            var path = 'foo';
+            var qs = {'baz' : 'bat'};
+            new Api(target, path, qs);
+        }, Error, 'Error: URL is required.');
+
+    test.throws(
+        function() {
+            var target = 'http://foo.com';
+            var path = '';
+            var qs = {'baz' : 'bat'};
+            new Api(target, path, qs);
+        }, Error, 'Error: Path is required.');
+
+    test.throws(
+        function() {
+            var target = 'http://foo.com';
+            var path = 'foo';
+            var qs = '';
+            new Api(target, path, qs);
+        }, Error, 'QueryString is required.');
+
+    test.done();
+};
+
+exports.testUrlBuild = function(test) {
+    var target = 'http://foo.com';
+    var path = '/foo/';
+    var qs = {'baz' : 'bat'};
+
+    var myApi = new Api(target, path, qs);
+    var myUrl = myApi.buildUrl();
+
+    test.equals(myUrl, 'http://foo.com/foo/?baz=bat')
+    test.done();
 }
 
-exports.setUp = function(done) {
-    server.start(3000, function() {
-        done();
-    });
-}
-
-exports.tearDown = function(done) {
-    server.stop(function() {
-        done();
-    });
-}
-
-exports.test_one = function(test) {
-    get('http://127.0.0.1:3000', function(response, responseText) {
-        test.equals(200, response.statusCode, 'Status Code');
-        test.done();
-    });
-}
+// Close the mock server
+server.isDone();
