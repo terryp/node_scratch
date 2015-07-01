@@ -24,3 +24,7 @@ The external libraries that this project depends on are the following:
 
         nock
         nodeunit
+
+How do you need to run this ... 
+
+        node
