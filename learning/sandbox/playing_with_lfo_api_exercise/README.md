@@ -15,3 +15,12 @@ This mini project contains the following files:
         ├── api.js                  / Main file
         ├── package.json            / Packages needed to install
         └── scratch.js              / Scratch paper
+
+Users should be able to download the project and install it via Npm. 
+
+        npm install
+
+The external libraries that this project depends on are the following:
+
+        nock
+        nodeunit

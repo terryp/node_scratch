@@ -16,7 +16,6 @@
     "scraping"
   ],
   "dependencies": {
-    "request": "2.58.0",
     "nock" : "2.6.0",
     "nodeunit" : "0.9.1"
   },
