@@ -2,12 +2,6 @@
 
 'use strict';
 
-// Node 'Batteries Included'
-//var http = require('http');
-    // url = require('url'),
-    // util = require('util'),
-    // querystring = require('querystring');
-
 // Local Node 'Batteries'
 var Api = require('./api.js');
 
@@ -18,7 +12,10 @@ var nock = require('nock');
 var server = nock('http://not_real.com')
             .persist()
   
-            .get('/customer_scoring/')
+            // this is way broken in nock right now
+            // see -- https://github.com/pgte/nock/issues/82
+            // best thing I can do is hardcode, which is lamers
+            .get('/customer_scoring/?income=50000&zipcode=60201&age=35')
             .reply(200, {
               'propensity' : 0.26532,
               'ranking' : 'C'
@@ -34,6 +31,11 @@ var server = nock('http://not_real.com')
             .reply(404, 'File Not Found');
 
 // Ahoy, unit tests!
+
+//
+// testParams = validate that when I try to make an API object, I've done it
+// with the right params. 
+//
 exports.testParams = function (test) {
     var target = 'http://foo.com';
     var path = '/foo/';
@@ -46,6 +48,10 @@ exports.testParams = function (test) {
     test.done();
 };
 
+//
+// testParamsErr = validate that if I don't supply the right params, I throw 
+// some errors. 
+//
 exports.testParamsErr = function (test) {
     test.throws(
         function() {
@@ -74,6 +80,10 @@ exports.testParamsErr = function (test) {
     test.done();
 };
 
+//
+// testURLBuild = validate that the API object actually builds an endpoint
+// correctly. 
+//
 exports.testUrlBuild = function(test) {
     var target = 'http://foo.com';
     var path = '/foo/';
@@ -86,19 +96,21 @@ exports.testUrlBuild = function(test) {
     test.done();
 };
 
-exports.testFetch = function(test) {
-    var target = 'http://not_real.com/';
-    var path = '/customer_scoring';
-    var qs = {'income' : 50000, 'zipcode' : 60201, 'age' : 35};
+// 
+// testFetch = validate that when I ask for something, I actually get something 
+// back. 
+//
+exports.testFetchData = function(test) {
+    var target = 'http://not_real.com';
+    var path = '/customer_scoring/';
+    var qs = {'income': 50000, 'zipcode': 60201, 'age': 35};
 
     var myApi = new Api(target, path, qs);
-    var myData = myApi.fetchData();
-
-    var statusCode = myData[0];
-    var payload = myData[1];
-
-    test.equals(statusCode, 200, 'Status Code');
-    test.done();
+    myApi.fetchData(function(results) {
+        var myResults = results;
+        test.equals(myResults['status code'], 200, 'Status Code');
+        test.done();
+    });
 };
 
 // Close the mock server

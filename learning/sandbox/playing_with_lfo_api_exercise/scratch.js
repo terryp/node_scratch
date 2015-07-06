@@ -2,48 +2,95 @@
 
 'use strict';
 
-var fs = require('fs'),
-    http = require('http'), 
-    path = require('path'), 
-    url = require('url');
 
-var request = require('request');
 
-var testServer = http.createServer(function(req, res) {
-    var uri = url.parse(req.url).pathname;
-    var filename = path.join(process.cwd(), 'static', uri)
+var http = require('http');
 
-    // DEBUG
-    console.log(uri);
-    console.log(filename);
+var url = 'http://ip-api.com/json';
 
-    fs.exists(filename, function(exists) {
-        if(!exists) {
-            res.writeHead(404, {'Content-Type': 'text/plain'});
-            res.write('404 Not Found, Captain.');
-            res.end();
-            return;
-        } else {
-            res.writeHead(200, {'Content-Type': 'application/json'});
+var Api = function(url) {
+    var self = this;
+    var url = self.url;
+}
 
-            // Hard coding for now
-            var payload = {
-                'propensity' : 0.26532,
-                'ranking' : 'C'
-            };
+Api.prototype.fetchData = function(cb) {
+    http.get(url, function(res) {
+        res.on('data', function(d) {
+            cb(JSON.parse(d));
+        });
+        res.on('error', function(e) {
+            console.error(e);
+        });
+    });
+}
 
-            res.end(JSON.stringify(payload));
-        }
-    })
+function makeCall (url, callback) {
+    http.get(url,function(res) {
+        res.on('data', function(d) {
+            callback(JSON.parse(d));
+        });
+        res.on('error', function (e) {
+            console.error(e);
+        });
+    });
+}
+
+function handleResults(results){
+    //do something with the results
+}
+
+makeCall(url, function(results){
+    console.log('results:',results);
+    handleResults(results);        
 });
 
-testServer.listen(3000);
+var myApi = new Api(url);
+myApi.fetchData(function(results) {
+    console.log(results);
+})
 
-request('http://127.0.0.1:3000/200.html', function(err, res, body) {
-    if (!err && res.statusCode == 200) {
-        console.log(body);
-    }
-});  
+// var myApi = new Api(url, function(results) {
+//     console.log(results);
+// }).fetchData();
+
+
+// var request = require('request');
+
+// var testServer = http.createServer(function(req, res) {
+//     var uri = url.parse(req.url).pathname;
+//     var filename = path.join(process.cwd(), 'static', uri)
+
+//     // DEBUG
+//     console.log(uri);
+//     console.log(filename);
+
+//     fs.exists(filename, function(exists) {
+//         if(!exists) {
+//             res.writeHead(404, {'Content-Type': 'text/plain'});
+//             res.write('404 Not Found, Captain.');
+//             res.end();
+//             return;
+//         } else {
+//             res.writeHead(200, {'Content-Type': 'application/json'});
+
+//             // Hard coding for now
+//             var payload = {
+//                 'propensity' : 0.26532,
+//                 'ranking' : 'C'
+//             };
+
+//             res.end(JSON.stringify(payload));
+//         }
+//     })
+// });
+
+// testServer.listen(3000);
+
+// request('http://127.0.0.1:3000/200.html', function(err, res, body) {
+//     if (!err && res.statusCode == 200) {
+//         console.log(body);
+//     }
+// });  
 
 
 // Use cases
