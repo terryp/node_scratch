@@ -18,7 +18,8 @@ How do you need to run this ...
         node api.js                / Runs toy api library this actually 
                                    / doens't do anything since it's a module. 
 
-OK, but what can I run? Well, you can run the tests!                                   
+OK, but what can I run? Well, you can run the tests!
+
         nodeunit _test_api.js      / Runs tests
 
 It should give you output like this:
