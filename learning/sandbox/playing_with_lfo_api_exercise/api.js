@@ -59,9 +59,11 @@ Api.prototype.buildUrl = function() {
     return target;
 };
 
-Api.prototype.fetchData = function() {
+Api.prototype.fetchData = function(callback) {
     var self = this;
-    http.get(self.buildUrl(), function(res) {
+    var target = self.buildUrl(); 
+
+    http.get(target, function(res) {
         var s = '';
         res.on('data', function(data) {
             s += data;
@@ -76,8 +78,10 @@ Api.prototype.fetchData = function() {
             } else if (res.statusCode == 404) {
                 throw new Error('File Not Found.');
             } else {
-                console.log(res.statusCode);
-                console.log(s);    
+                // FIXME ... either make an object or something ...
+                // to return the data.
+                return res.statusCode;
+                
             }
         });
     });
@@ -94,8 +98,10 @@ console.log(myApi.path);
 console.log(myApi.qs);
 console.log(myApi.buildUrl());
 
-var data = myApi.fetchData();
-console.log(data);
+var myData = myApi.fetchData(function() {
+    console.log('I am done.');
+});
+console.log(myData);
 
 server.isDone();
 

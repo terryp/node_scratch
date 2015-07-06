@@ -16,15 +16,16 @@ This mini project contains the following files:
         ├── package.json            / Packages needed to install
         └── scratch.js              / Scratch paper
 
-Users should be able to download the project and install it via Npm. 
-
-        npm install
-
 The external libraries that this project depends on are the following:
 
         nock
         nodeunit
 
+Users should be able to download the project and install it via Npm. 
+
+        npm install
+
 How do you need to run this ... 
 
-        node
+        node api.js                / Runs toy api library
+        nodeunit _test_api.js      / Runs tests
