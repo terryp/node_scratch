@@ -1,12 +1,27 @@
 
+/*jslint node: true */
+
 'use strict';
 
+// Node Batteries Included
 var fs = require('fs');
 var path = require('path');
 
+// Putting the number file somewhere other than our code. 
+// Yay! Path munging!
 var data = path.resolve('../data/number.txt');	
 
+// Declare a variable name 'myNumber' but we don't know it's value
+// since the value is in the variable 'data' which will pluck it from
+// the file. This is a punt. 
 var myNumber = undefined;
+
+function showOriginal(callback) {
+	fs.readFile(data, function doneReading(err, fileContents) {
+		myNumber = parseInt(fileContents);
+		callback();
+	})
+}
 
 function addOne(callback) {
 	fs.readFile(data, function doneReading(err, fileContents) {
@@ -26,10 +41,12 @@ function addOne(callback) {
 								// before addOne() has finished.
 
 function logMyNumber() {
-	console.log(myNumber)
+	console.log(myNumber);
 }
 
-addOne(logMyNumber)				// OK, getting around these means a little 
+showOriginal(logMyNumber);
+
+addOne(logMyNumber);			// OK, getting around these means a little 
 								// surgery. We add a callback param to the 
 								// addOne function and we declear a new 
 								// function who's responsibility it to 
