@@ -45,7 +45,7 @@ Api.prototype.fetchData = function(cb) {
             body += chunk;
             payload['status code'] = res.statusCode;
             payload['body'] = body;
-            cb(payload);
+            cb(payload);                            // RIGHT FUCKING HERE
         });
     });
 };
