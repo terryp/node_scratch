@@ -12,8 +12,11 @@ var nock = require('nock');
 var server = nock('http://not_real.com')
             .persist()
   
-            // this is way broken in nock right now
-            // see -- https://github.com/pgte/nock/issues/82
+            // Author Note: This is way broken in nock right now
+            // see -- 
+            // 
+            // https://github.com/pgte/nock/issues/82
+            // 
             // best thing I can do is hardcode, which is lamers
             .get('/customer_scoring/?income=50000&zipcode=60201&age=35')
             .reply(200, {
