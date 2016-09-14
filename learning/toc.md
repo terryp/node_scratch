@@ -8,6 +8,9 @@ References I'm Using to Work Through the Shizzle
 - aon / The Art of Node - Ogden
   - https://github.com/maxogden/art-of-node
 
+- boes6 / Best of ES6
+  - https://www.youtube.com/watch?v=AfWYO8t7ed4
+
 - eas / Embracing Async
   - http://io.pellucid.com/blog/embracing-async-in-javascript-part-1
   - http://io.pellucid.com/blog/embracing-async-in-javascript-part-2
