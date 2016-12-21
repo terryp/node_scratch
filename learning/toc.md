@@ -39,6 +39,9 @@ References I'm Using to Work Through the Shizzle
 - mt / "Mastering JavaScript's 'this'"
   - http://derickbailey.com/email-courses/masteringthis/
 
+- nh / "Node Hero"
+  - https://blog.risingstack.com/node-hero-tutorial-getting-started-with-node-js/
+
 - nia / "Node in Action" - Cantelon, Harter, Holowaychuk and Rajlich
   - http://www.manning.com/cantelon/
 
