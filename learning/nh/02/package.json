@@ -1,0 +1,15 @@
+{
+  "name": "testing-npm",
+  "version": "1.0.0",
+  "description": "Learning about NPM dependencies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"No tests\\\" && exit 1",
+    "start": "index.js"
+  },
+  "author": "Terry Peppers",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.2"
+  }
+}
