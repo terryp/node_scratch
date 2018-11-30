@@ -20,9 +20,7 @@ var server = nock('http://not_real.com')
           .get('/')
           .reply(404, 'File Not Found');
 
-function getData(url) {
-  
-}
+
 
 exports.test_200 = function(test) {
     http.get('http://not_real.com/customer_scoring/', function(res) {

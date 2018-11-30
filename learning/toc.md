@@ -39,6 +39,9 @@ References I'm Using to Work Through the Shizzle
 - nia / "Node in Action" - Cantelon, Harter, Holowaychuk and Rajlich
   - http://www.manning.com/cantelon/
 
+- njs_trw / "Node.js 8: The Right Way" - Wilson
+  - https://pragprog.com/book/jwnode2/node-js-8-the-right-way 
+
 - nsa / "Node Stream Adventure"
   - https://github.com/substack/stream-adventure
 
