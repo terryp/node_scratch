@@ -1,0 +1,12 @@
+{
+  "name": "01_exercise",
+  "version": "1.0.0",
+  "description": "Self study exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: No tests\\\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "MIT"
+}

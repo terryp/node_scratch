@@ -1,0 +1,12 @@
+{
+  "name": "01",
+  "version": "1.0.0",
+  "description": "Trying some stuff out.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no tests specified\\\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Terry Peppers",
+  "license": "MIT"
+}

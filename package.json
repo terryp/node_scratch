@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "The shit everyone else knows about Node except me",
   "author": "Terry Peppers <peppers@gmail.com",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/terryp/node_scratch"
@@ -17,10 +18,11 @@
     "async": "0.9.0",
     "cheerio": "0.17.0",
     "events": "^1.0.1",
-    "express": "4.x",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
     "form-data": "0.1.4",
     "html5": "0.4.1",
-    "htmlparser" : "^1.7.7",
+    "htmlparser": "^1.7.7",
     "jsdom": "0.10.6",
     "request": "2.26.0",
     "split": "~0.3.0",

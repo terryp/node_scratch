@@ -8,9 +8,9 @@ function now() {
 
 function later() {
     answer = answer * 2;
-    console.log("Meaning of life:", answer);
+    console.log('Meaning of life:', answer);
 }
 
-var answer = now()
+var answer = now();
 
 setTimeout(later, 1000);
