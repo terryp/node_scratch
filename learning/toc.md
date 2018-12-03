@@ -33,6 +33,9 @@ References I'm Using to Work Through the Shizzle
 - jstgp / "JavaScript the Good Parts" - Crockford
   - http://javascript.crockford.com/private.html
 
+- lljc / "Let's Learn JavaScript Closures"
+  - https://medium.freecodecamp.org/lets-learn-javascript-closures-66feb44f6a44
+
 - lynjs / "Learn You Node.js"
   - https://github.com/rvagg/learnyounode
 

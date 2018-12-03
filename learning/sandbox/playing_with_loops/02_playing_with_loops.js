@@ -6,7 +6,7 @@ var assert = require('assert');
 var something = [2, 4, 6, 8];
 
 for (var i = 0; i < something.length; i++ ) {
-    console.log(something[i])
+    console.log(something[i]);
     (function(ind){ console.log(ind)}(i));
 }
 

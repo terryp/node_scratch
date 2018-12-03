@@ -8,7 +8,7 @@
 const pg = require('pg');
 
 const config = {
-}
+};
 
 pg.connect(connString, function(err, client, done) {
     if (err) {

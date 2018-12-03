@@ -59,8 +59,8 @@ var thirdWay = function() {
     var arr = ['apple', 'orange', 'pear', 23, 438, 'foo'];
     arr.forEach(function(item, index) {
         console.log(item);
-    })
-}
+    });
+};
 
 
 firstWay();
