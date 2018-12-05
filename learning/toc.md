@@ -73,6 +73,7 @@ References I'm Using to Work Through the Shizzle
 
 - ues6 / "Understanding ECMAScript 6" - Zakas
   - https://leanpub.com/understandinges6
+  - https://github.com/nzakas/understandinges6
 
 - ydkjsap / "You Don't Know JS: Async and Performance" - Simpson
   - https://github.com/getify/You-Dont-Know-JS/tree/master/async%20%26%20performance
