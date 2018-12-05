@@ -71,6 +71,9 @@ References I'm Using to Work Through the Shizzle
 - sp_ln / "Learning Node" - Powers
   - http://shop.oreilly.com/product/0636920024606.do
 
+- ues6 / "Understanding ECMAScript 6" - Zakas
+  - https://leanpub.com/understandinges6
+
 - ydkjsap / "You Don't Know JS: Async and Performance" - Simpson
   - https://github.com/getify/You-Dont-Know-JS/tree/master/async%20%26%20performance
 
