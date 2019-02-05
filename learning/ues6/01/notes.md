@@ -11,7 +11,7 @@
     
     - const / Aggressive scoping. Once set it's set. These are - duh - constants. But they have to be initialized with a value otherwise an error is going to get thrown. Also const has limited scope; similar to let, const declarations are block level. 
 
-- Temporal Dead Zone (TDZ) / The place where variables go at runtime. JavaScript it going to look at all the code and either hoist variables into the the top of the function or the global scope (var) ... if it isn't either of those it goes into the TDZ (let and const). If you try to access something in the TDZ a run time error will be thrown. 
+- Temporal Dead Zone (TDZ) / The place where variables go at runtime. JavaScript is going to look at all the code and either hoist variables into the the top of the function or the global scope (var) ... if it isn't either of those it goes into the TDZ (let and const). If you try to access something in the TDZ a run time error will be thrown. 
 
 # Explain/Explore for Yourself
 
