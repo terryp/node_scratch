@@ -2,11 +2,15 @@
 <html>
 <head>
     <title>Bot or Not!</title>
+    <script type="text/javascript">
+        function helloWorld() {
+            let ua = navigator.userAgent;
+            document.getElementById("result").innerHTML = ua;
+        }
+    </script>
 </head>
 <body>
-    <script type="text/javascript">
-        var ua = navigator.UserAgent;
-        console.log(ua);
-    </script>
+    <button onclick="helloWorld()">Greeting</button>
+    <div id="result"></div>
 </body>
 </html>
