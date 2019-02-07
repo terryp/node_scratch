@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>HTML and JavaScript Utilities and Examples</title>
+  <title>What Day Is It?</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -26,6 +26,13 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="ico/favicon.ico">
 
+  <script type="text/javascript">
+    function getDate() {
+        let date = new Date()
+        document.getElementById("date").innerHTML = date;
+    }
+  </script>
+
 </head>
 <body>
 
@@ -34,12 +41,11 @@
   <div class="container">
     <div class="row">
       <div class="one-half column" style="margin-top: 25%">
-        <h4>Greetings and Salutations</h4>
-        <p>I need a place to start putting some very basic examples of things that leverage JavaScript but also look <a href="http://getskeleton.com/">semi-nice</a>.</p>
-        <ul>
-          <li><a href="01_who_are_you.html">Who Are You?</a> / A dead simple UA detection agent.</li>
-          <li><a href="02_what_day_is_it.html">What Day Is It?</a> / A dead simple display of the date.</li>
-        </ul>
+        <h4>What Day Is It?</h4>
+        <p>Greetings. I would like to know who you are.</p>
+        <p><button onclick="getDate()">What Day Is It?</button></p>
+        <p id="date"></p>
+        <h6><a href="index.html">Return to Index</a></h6>
       </div>
     </div>
   </div>
