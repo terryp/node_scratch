@@ -1,8 +1,6 @@
 
-/* eslint-disable */
-
-const firstName = Symbol('first name');
-const person = {};
+let firstName = Symbol('first name');
+let person = {};
 
 person[firstName] = 'Terry';
 

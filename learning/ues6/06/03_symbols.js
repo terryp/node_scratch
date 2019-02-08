@@ -1,9 +1,3 @@
 
-/* eslint-disable */
-
-let firstName = Symbol('first name');
-
-let person = {
-  [firstName]: "Terry"
-};
-
+let symbol =  Symbol('test symbol');
+console.log(typeof symbol);

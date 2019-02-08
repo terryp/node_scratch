@@ -14,3 +14,5 @@
 # Explain/Explore for Yourself
 
 - What type is NaN or is it even a type?
+
+- Symbol.for() is part of the global symbol registry ... why would I want to use this?

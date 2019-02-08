@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>HTML and JavaScript Utilities and Examples</title>
+  <title>UUID</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -26,6 +26,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="ico/favicon.ico">
 
+  <script src="js/04_uuid.js"></script>
+
 </head>
 <body>
 
@@ -34,14 +36,11 @@
   <div class="container">
     <div class="row">
       <div class="one-half column" style="margin-top: 25%">
-        <h4>Greetings and Salutations</h4>
-        <p>I need a place to start putting some very basic examples of things that leverage JavaScript but also look <a href="http://getskeleton.com/">semi-nice</a>.</p>
-        <ul>
-          <li><a href="01_who_are_you.html">Who Are You?</a> / A dead simple UA detection agent.</li>
-          <li><a href="02_what_day_is_it.html">What Day Is It?</a> / A dead simple display of the date.</li>
-          <li><a href="03_pulling_it_in.html">Pulling It In</a> / A dead simple example of calling a remote script.</li>
-          <li><a href="04_uuid.html">Identification Please</a> / A contrived example of how to generate a UUID.</li>
-        </ul>
+        <h4>UUID</h4>
+        <p>Greetings. This is a contrived example of how to generate a UUID.</p>
+        <p><button onclick="getUUID()">Identification Please</button></p>
+        <p id="uuid"></p>
+        <h6><a href="index.html">Return to Index</a></h6>
       </div>
     </div>
   </div>
