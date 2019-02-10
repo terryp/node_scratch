@@ -18,6 +18,9 @@ References I'm Using to Work Through the Shizzle
 - ejs / Effective JavaScript - Herman
   - http://effectivejs.com/
 
+- eljs / Eloquent JavaScript - Haverbeke
+    - https://eloquentjavascript.net/
+
 - hon / Hands on Node - Teixeira
   - http://nodetuts.com/handson-nodejs-book.html
 
