@@ -1,4 +1,3 @@
-
 /*
     1. Zero or more WUBS *before* first word
     2. Zero or more WUBS *after* the last word
@@ -6,8 +5,8 @@
 */
 
 function songDecoder(song) {
-  song = song.replace(/wub/gi, ' ');
-  song = song.replace(/\s{2,}/g, ' ');
+  song = song.replace(/wub/gi, " ");
+  song = song.replace(/\s{2,}/g, " ");
   song = song.trim();
   return song;
 }
