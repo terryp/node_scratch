@@ -1,0 +1,31 @@
+{
+  "name": "node-scratch",
+  "version": "0.0.1",
+  "description": "The shit everyone else knows about Node except me",
+  "author": "Terry Peppers <peppers@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/terryp/node_scratch"
+  },
+  "keywords": [
+    "beginner",
+    "example",
+    "browser",
+    "scraping"
+  ],
+  "dependencies": {
+    "async": "^2.6.2",
+    "cheerio": "^1.0.0-rc.3",
+    "events": "^3.0.0",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "form-data": "^2.3.3",
+    "jest": "^24.7.1",
+    "jsdom": "^14.0.0",
+    "request": "^2.26.0",
+    "superagent": "^5.0.1",
+    "underscore": "^1.6.0",
+    "xmlhttprequest": "^1.6.0"
+  }
+}
