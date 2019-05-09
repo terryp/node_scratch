@@ -1,61 +1,45 @@
-/*jslint node: true */
-
-'use strict';
-
 /*
 
 A remedial examination of how to loop over a container. In this case it's an
-array. I wanted to take a peek at all the ways that I think I know how 
-to do this. 
+array. I wanted to take a peek at all the ways that I think I know how
+to do this.
 
-*/ 
+See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration
 
-var items = [1,2,3,4];                          // Here's the target array
-                                                // that I'll be looping over.
+*/
 
-console.log('What Am I Looping Over?!');        // Log what you're doing.
-console.log(items);
-console.log('\n');
+// Here's the target array that I'll be looping over.
+let items = [1, 2, 3, 4];
 
-console.log ('Standard Looping');               // Here's the typical way of
-for (var i = 0; i < items.length; i++) {        // looping using a C style 
-	console.log(items[i] + 1);                  // counter. 
+console.log(`What Am I Looping Over?!\t${items}`);
+
+let standardLoop =
+  'Standard Looping: Typical way of looping using a C style counter';
+console.log(`\n${standardLoop}`);
+for (let i = 0; i < items.length; i++) {
+  console.log(items[i]);
 }
-console.log('\n');
 
-console.log ('For In Looping');                 // Here's another way to loop
-for (var i in items) {                          // using the for-in approach.
-	console.log(items[i] + 1);                  // This is more similar to how                 
-}                                               // I prefer to loop in Python.
-console.log('\n');
+/*
 
+Although it may be tempting to use this as a way to iterate over Array elements, the for...in statement will return the name of your user-defined properties in addition to the numeric indexes. Thus it is better to use a traditional for loop with a numeric index when iterating over arrays, because the for...in statement iterates over user-defined properties in addition to the array elements, if you modify the Array object, such as adding custom properties or methods.
 
-console.log('For Each Looping');                // And yet another way! This
-items.forEach(function(i) {                     // is a for-each loop which
-	console.log(i + 1);                         // seems more similar to IIRC
-});                                             // a Ruby block or a Python
-console.log('\n');
+*/
 
+let forInLoop = 'For In Looping: Similar to the Python way of looping.';
+console.log(`\n${forInLoop}`);
+for (let i in items) {
+  console.log(items[i]);
+}
 
-var async = require('async');                   // Now that we've taken a look
-                                                // at the built in ways to do
-                                                // this, how about using 
-                                                // external libs.
-
-console.log('Async Looping');                   // Still another way, async!
-var add_one = function(x, doneCallback) {       // Need to define a function
-    console.log(x + 1);                         // in order for this to work.
-    return doneCallback(null);                  // Well, you could use an
-};                                              // anonymous function but this
-                                                // seems a little more explicit.
-
-async.each(items, add_one, function() {
-	console.log('\n');
+console.log('\nFor Each Looping');
+console.log('And yet another way! This is a for-each loop which is block like');
+items.forEach(function(i) {
+  console.log(i);
 });
 
-var _ = require('underscore');                  // What about the underscore.js?
+// async/await
 
-console.log('Underscore Looping - Each');
-_.each(items, function(num) { 
-    console.log(num + 1); 
-});
+// lodash
+
+// underscore
