@@ -1,6 +1,5 @@
-
-let num = 0; 
+let num = 0;
 while (num < 12) {
-    console.log(num);
-    num += 1;
+  console.log(num);
+  num += 1;
 }

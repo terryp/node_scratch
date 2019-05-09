@@ -1,4 +1,4 @@
-const power = function(base, exponent) {
+const power = (base, exponent = 2) => {
   let result = 1;
   for (let count = 0; count < exponent; count++) {
     result *= base;
@@ -6,4 +6,4 @@ const power = function(base, exponent) {
   return result;
 };
 
-console.log(power(2, 10));
+console.log(power(10));

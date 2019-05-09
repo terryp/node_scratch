@@ -1,6 +1,5 @@
-
 const makeNoise = function() {
-    console.log('Noise!');
-}
+  console.log('Noise!');
+};
 
 makeNoise();

@@ -1,9 +1,8 @@
-
 const halve = function(n) {
-    return n / 2;
-}
+  return n / 2;
+};
 
-let n = 10
+let n = 10;
 
 console.log(halve(1000));
 

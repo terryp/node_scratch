@@ -1,9 +1,9 @@
-
 # 01 / Values, Types and Operators
 
-- Values 
-    - Numbers
-    - Strings
+- Values
+
+  - Numbers
+  - Strings
 
 - Operatores
-    - +, *
+  - +, \*
