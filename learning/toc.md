@@ -21,6 +21,10 @@
   - http://io.pellucid.com/blog/embracing-async-in-javascript-part-1
   - http://io.pellucid.com/blog/embracing-async-in-javascript-part-2
 
+- eajs / Evolution of Asynchronous JavaScript
+
+  - https://medium.com/free-code-camp/the-evolution-of-async-javascript-from-callbacks-to-promises-to-async-await-e73b047f2f40
+
 - ejs / Effective JavaScript - Herman
 
   - http://effectivejs.com/
