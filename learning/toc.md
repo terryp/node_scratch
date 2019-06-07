@@ -1,5 +1,9 @@
 # References I'm Using to Work Through the Shizzle
 
+- 8020gtp / The 80/20 Guide to Promises
+
+  - http://thecodebarbarian.com/the-80-20-guide-to-promises-in-node-js.html
+
 - ajs / Asynchronous JS: Callbacks, Listeners, Control Flow Libs and Promises
 
   - http://sporto.github.io/blog/2012/12/09/callbacks-listeners-promises/
@@ -60,6 +64,10 @@
 - lynjs / "Learn You Node.js"
 
   - https://github.com/rvagg/learnyounode
+
+- masa / "Mastering Async/Await"
+
+  - http://asyncawait.net/
 
 - mt / "Mastering JavaScript's 'this'"
 
