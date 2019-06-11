@@ -1,11 +1,7 @@
-/*jslint node: true */
-
-'use strict';
-
 var a = {
-    index: 1
-}
+  index: 1
+};
 
 console.log(a);
 
-a.index++
+a.index++;
