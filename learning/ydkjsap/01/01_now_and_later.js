@@ -1,16 +1,12 @@
-/*jslint node: true */
-
-'use strict';
-
 function now() {
-    return 21;
+  return 21;
 }
 
 function later() {
-    answer = answer * 2;
-    console.log('Meaning of life:', answer);
+  answer = answer * 2;
+  console.log('Meaning of life:', answer);
 }
 
-var answer = now();
+answer = now();
 
 setTimeout(later, 1000);
