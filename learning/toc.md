@@ -41,6 +41,10 @@
 
   - http://nodetuts.com/handson-nodejs-book.html
 
+- inujsc / I Never Understood JavaScript Closures ...
+
+  - https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8
+
 - javascripting / Nodeschool.io
 
   - https://github.com/sethvincent/javascripting
